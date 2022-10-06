@@ -1,0 +1,8 @@
+<div class="flex">
+  <input placeholder="Vorname" [(ngModel)]="firstname" />
+  <input placeholder="Nachname" [ngModel]="lastname" (ngModelChange)="lastname = $event" />
+
+  <button (click)="sayHello()">Say Hello!</button>
+</div>
+
+<div id="output" [class.error]="error">{{output}}</div>

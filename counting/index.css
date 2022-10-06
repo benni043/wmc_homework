@@ -1,0 +1,38 @@
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+#centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    border-radius: 3px;
+    margin: 10px;
+
+    font-size: 20px;
+}
+
+#reset {
+    background-color: orangered;
+}
+
+#add {
+    background-color: lightgreen;
+}
+
+ul {
+    text-align: center;
+    list-style: none;
+    font-size: 20px;
+}
+
+button:hover {
+    scale: 115%;
+}

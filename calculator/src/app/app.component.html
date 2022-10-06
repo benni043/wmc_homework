@@ -1,0 +1,13 @@
+<div class="flex">
+  <input *ngIf="showData" placeholder="Zahl" [(ngModel)]="number" />
+  <button *ngIf="showData" (click)="calc()">Calc</button>
+
+  <button *ngIf="showReset" (click)="reset()">Reset</button>
+</div>
+
+<div class="flex">
+  <ul>
+    <li *ngFor="let item of items; odd as o; last as l;" [class.odd]="o" [class.last]="l">{{item}}</li>
+  </ul>
+</div>
+

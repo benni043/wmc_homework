@@ -1,0 +1,14 @@
+.odd {
+  color: red;
+}
+
+.last {
+  color: greenyellow;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+

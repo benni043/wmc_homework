@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div id="centeredDateTime">
+    <button id="refresh" class="button" type="submit"><img src="reload.png" alt="reloadpng"></button>
+    <div class="display1" id="dateAndClockDisplay"></div>
+</div>
+
+<div id="centeredDisplay">
+    <div class="display" id="minutes">00</div>
+    <div class="doppelpunkt">:</div>
+    <div class="display" id="seconds">00</div>
+    <div class="doppelpunkt">:</div>
+    <div class="display" id="milliseconds">000</div>
+</div>
+
+<div id="centeredButtons">
+    <button id="stop" class="blocked button" onclick="stop()">Stop</button>
+    <button id="start" class="button" onclick="start()">Start</button>
+    <button id="reset" class="blocked button" onclick="reset()">Reset</button>
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>

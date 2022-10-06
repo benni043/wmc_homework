@@ -1,0 +1,76 @@
+#centeredButtons, #centeredDisplay, #centeredDateTime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px;
+    width: 80px;
+    height: 50px;
+    font-size: 40px;
+
+    box-shadow: -3px 3px 8px silver;
+    border-radius: 2px;
+}
+
+.button {
+    margin: 10px;
+    background-color: #FAFBFC;
+    border: 1px solid #24292E;
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 80px;
+}
+
+.button:not(.blocked) {
+    font-weight: bold;
+}
+
+.button:hover:not(.blocked) {
+    scale: 110%;
+    background-color: #F3F4F6;
+    transition-duration: 0.4s;
+}
+
+.blocked {
+    background-color: #E3E3E3 !important;
+}
+
+#start {
+    background-color: greenyellow;
+}
+
+#stop {
+    background-color: #EE7621;
+}
+
+#reset {
+    background-color: #FF4500;
+}
+
+img {
+    width: 15px;
+}
+
+#dateAndClockDisplay {
+    font-size: 20px;
+}
+
+.doppelpunkt {
+    font-size: 30px;
+}

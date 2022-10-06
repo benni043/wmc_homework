@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="90f8770c-c067-410f-b726-7ab508eb2894" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2F1v40Iy0JsUANP2KdYYCTzWP5b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\Huff Benedikt Stefan\OneDrive - HTBLuVA St. Pölten\3AHIF\WMC3\calculator\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bened\OneDrive - HTBLuVA St. Pölten\3AHIF\WMC\WMC3\clockTest" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start (1)">
+    <configuration name="start (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/calculator/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/firstproject/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start (1)" />
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90f8770c-c067-410f-b726-7ab508eb2894" name="Changes" comment="" />
+      <created>1663672212451</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1663672212451</updated>
+      <workItem from="1663672213975" duration="5402000" />
+      <workItem from="1663678036545" duration="4210000" />
+      <workItem from="1663736878093" duration="1509000" />
+      <workItem from="1663739130035" duration="633000" />
+      <workItem from="1663754360886" duration="607000" />
+      <workItem from="1663765816452" duration="1955000" />
+      <workItem from="1663783160003" duration="219000" />
+      <workItem from="1663783402236" duration="4691000" />
+      <workItem from="1663838492788" duration="604000" />
+      <workItem from="1663851552565" duration="425000" />
+      <workItem from="1663857633853" duration="413000" />
+      <workItem from="1664026364501" duration="67000" />
+      <workItem from="1664275333479" duration="3196000" />
+      <workItem from="1664280124172" duration="2865000" />
+      <workItem from="1664860031736" duration="244000" />
+      <workItem from="1664881817717" duration="1839000" />
+      <workItem from="1664883688625" duration="2459000" />
+      <workItem from="1664886211538" duration="93000" />
+      <workItem from="1664886332996" duration="2212000" />
+      <workItem from="1664904296676" duration="1942000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

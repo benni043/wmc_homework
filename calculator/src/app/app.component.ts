@@ -7,25 +7,21 @@ import {Component} from '@angular/core';
 })
 
 export class AppComponent {
-  showData: boolean = true;
-  showReset: boolean = false;
+  showCalc: boolean = true;
 
   number: number = 1;
   items: number[] = [];
 
   calc() {
-    this.showData = false;
-    this.showReset = true;
+    this.showCalc = false;
 
     for (let i = 0; i < this.number; i++) {
-      //this.items.push(this.fibbonacci(i + 1));
       this.items.push(this.fibbonaaciFormel(i+1));
     }
   }
 
   reset() {
-    this.showData = true;
-    this.showReset = false;
+    this.showCalc = true;
 
     this.items = [];
   }

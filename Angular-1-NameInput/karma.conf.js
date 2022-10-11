@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/f1'),
+      dir: require('path').join(__dirname, './coverage/Angular-1-NameInput'),
       subdir: '.',
       reporters: [
         { type: 'html' },

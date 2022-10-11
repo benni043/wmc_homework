@@ -1,0 +1,9 @@
+<div>
+  <input type="text" [(ngModel)]="name">
+
+  <select id="menu" [(ngModel)]="selected">
+    <option *ngFor="let greeting of greetings">{{greeting}}</option>
+  </select>
+
+  <div id="output">{{name | greeting: selected}}</div>
+</div>

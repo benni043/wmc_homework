@@ -9,8 +9,7 @@ import {Driver} from "./driver";
 export class AppComponent {
   drivers = Driver.getData();
 
-  currYear: number = new Date().getFullYear();
-
+  // function von stackOverflow
   getAlter(date: number) {
     let currDate = Date.now();
     return new Date(currDate-date).getFullYear() - 1970;

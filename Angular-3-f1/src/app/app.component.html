@@ -7,7 +7,7 @@
   </tr>
 
   <tr *ngFor="let driver of drivers; odd as o" [class.odd]="o">
-    <td>{{driver.lastname | uppercase | slice:0:3}}: {{driver.firstname}} {{driver.lastname}}</td>
+    <td>{{driver.lastname | slice:0:3 | uppercase}}: {{driver.firstname}} {{driver.lastname}}</td>
     <td>{{driver.team}}</td>
     <td>{{driver.birthday | date: "dd.MM.YYYY"}} (Alter: {{getAlter(driver.birthday.getTime())}})</td>
     <td id="right">{{driver.salary * 1000 | currency: "USD":"symbol":"1.2-2":"en-US"}} </td>

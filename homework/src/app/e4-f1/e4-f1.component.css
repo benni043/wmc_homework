@@ -1,0 +1,12 @@
+th {
+  background-color: black;
+  color: white;
+}
+
+.odd {
+  background-color: lightgray;
+}
+
+#right {
+  text-align: right;
+}

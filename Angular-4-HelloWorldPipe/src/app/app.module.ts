@@ -6,15 +6,18 @@ import {FormsModule} from "@angular/forms";
 import { GreetingPipe } from './greeting.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GreetingPipe,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        GreetingPipe,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
+    providers: [],
+    exports: [
+        GreetingPipe
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

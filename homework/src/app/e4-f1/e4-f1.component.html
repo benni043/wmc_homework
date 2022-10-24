@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Team</th>
+    <th>Geburtstag</th>
+    <th>Gehalt</th>
+  </tr>
+
+  <tr *ngFor="let driver of drivers; odd as o" [class.odd]="o">
+    <td>{{driver.lastname | slice:0:3 | uppercase}}: {{driver.firstname}} {{driver.lastname}}</td>
+    <td>{{driver.team}}</td>
+    <td>{{driver.birthday | date: "dd.MM.YYYY"}} (Alter: {{getAlter(driver.birthday.getTime())}})</td>
+    <td id="right">{{driver.salary * 1000 | currency: "USD":"symbol":"1.2-2":"en-US"}} </td>
+  </tr>
+</table>

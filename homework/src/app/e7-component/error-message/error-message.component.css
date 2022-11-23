@@ -1,0 +1,12 @@
+p {
+  width: 130px;
+  border: 1px solid white;
+  padding: 15px;
+  margin: 10px;
+  background-color: red;
+  border-radius: 10px;
+}
+
+p:hover {
+  transform: scale(110%, 110%);
+}

@@ -1,0 +1,17 @@
+.colored {
+  border: 3px solid deeppink;
+}
+
+#flex {
+  display: flex;
+  flex-direction: column;
+
+  margin: 5px;
+
+  background-color: #333333;
+  color: white;
+}
+
+span {
+  padding: 5px;
+}

@@ -1,4 +1,7 @@
-<div [class.colored]="type === 'Exam'" id="flex">
+<div [class.colored]="type === 'EXAM'" id="flex">
   <span>{{name}}</span>
-  <span>{{type}}</span>
+<!--  <span>{{type}}</span>-->
+
+  <div *ngIf="type === 'EXAM'; else training"><span>Exam</span></div>
+  <ng-template #training><span>Training</span></ng-template>
 </div>

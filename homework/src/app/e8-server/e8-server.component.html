@@ -1,18 +1,24 @@
 <div id="center">
+
   <div *ngFor="let server of servers">
     <app-server-component [name]="server.name" [type]="server.type"></app-server-component>
   </div>
 
   <div id="row">
-    <input class="elem" [(ngModel)]="name" type="text" name="name" id="name" placeholder="name">
+    <div id="nameDiv">
+      <label>Name</label>
+      <input class="elem" [(ngModel)]="name" type="text" name="name" id="name" placeholder="name">
+    </div>
 
-    <select class="elem" [(ngModel)]="type">
-      <option disabled>Choose a server</option>
-      <option>Training</option>
-      <option>Exam</option>
-    </select>
+    <div id="typeDiv">
+      <label>Type</label>
+      <select class="elem" [(ngModel)]="type">
+        <option>TRAINING</option>
+        <option>EXAM</option>
+      </select>
+    </div>
 
-    <button class="elem" (click)="func()">create</button>
+    <button class="elem" (click)="addServerToServerList()">create</button>
   </div>
 
 </div>

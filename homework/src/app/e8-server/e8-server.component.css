@@ -2,12 +2,20 @@
   display: flex;
 }
 
-.elem {
-  margin: 5px;
-}
-
 #center {
   display: flex;
   flex-direction: column;
   justify-content: left;
 }
+
+#nameDiv, #typeDiv {
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+}
+
+label {
+  padding: 5px;
+}
+

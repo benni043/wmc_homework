@@ -6,7 +6,3 @@ p {
   background-color: red;
   border-radius: 10px;
 }
-
-p:hover {
-  transform: scale(110%, 110%);
-}

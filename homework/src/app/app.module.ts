@@ -15,6 +15,7 @@ import { WarningMessageComponent } from './e7-component/warning-message/warning-
 import { ErrorMessageComponent } from './e7-component/error-message/error-message.component';
 import { ServerComponentComponent } from './e8-server/server-component/server-component.component';
 import {E8ServerComponent} from "./e8-server/e8-server.component";
+import { CockpitComponent } from './e8-server/cockpit/cockpit.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import {E8ServerComponent} from "./e8-server/e8-server.component";
         E8ServerComponent,
         ServerComponentComponent,
         E8ServerComponent,
+        CockpitComponent,
     ],
   imports: [
     BrowserModule,

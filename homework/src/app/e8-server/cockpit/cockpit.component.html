@@ -1,0 +1,11 @@
+<div id="row">
+  <input class="elem" [(ngModel)]="name" type="text" name="name" id="name" placeholder="name">
+
+  <select class="elem" [(ngModel)]="type">
+    <option disabled>Choose a server</option>
+    <option value="Training">Training</option>
+    <option value="Exam">Exam</option>
+  </select>
+
+  <button class="elem" (click)="add(name, type)">create</button>
+</div>

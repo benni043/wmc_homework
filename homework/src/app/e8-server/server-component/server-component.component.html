@@ -1,4 +1,7 @@
 <div [class.colored]="type === 'Exam'" id="flex">
   <span>{{name}}</span>
   <span>{{type}}</span>
+
+  <button (click)="remove(id)">remove</button>
+  <button (click)="copy(name, type)">copy</button>
 </div>

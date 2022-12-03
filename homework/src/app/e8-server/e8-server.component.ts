@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-e8-server',
@@ -7,18 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class E8ServerComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  servers: {name: string, type: string}[] = [];
+  index: number = 0;
 
-  name: string = "";
-  type: string = "";
+  servers: { name: string, type: string, id: number }[] = [];
 
-  func() {
-    this.servers.push({name: this.name, type: this.type});
+  func(server: { name: string, type: string }) {
+    this.servers.push({name: server.name, type: server.type, id: this.index});
+    this.index++;
+  }
+
+  delete(index: number) {
+    for (let i = this.servers.length - 1; i >= 0; i--) {
+      if(index == this.servers[i].id) this.servers.splice(i, 1);
+    }
+  }
+
+  copyName: string = "";
+  copyType: string = "";
+
+  copy(server: {name: string, type: string}) {
+    this.copyName = server.name;
+    this.copyType = server.type;
   }
 
 }

@@ -30,7 +30,6 @@ import { CockpitComponent } from './e8-server/cockpit/cockpit.component';
         E7ComponentComponent,
         WarningMessageComponent,
         ErrorMessageComponent,
-        E8ServerComponent,
         ServerComponentComponent,
         E8ServerComponent,
         CockpitComponent,

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./e8-server.component.css']
 })
 
+export class E8ServerComponent implements OnInit {
+
   constructor() {
   }
 

@@ -16,6 +16,8 @@ import { ErrorMessageComponent } from './e7-component/error-message/error-messag
 import { ServerComponentComponent } from './e8-server/server-component/server-component.component';
 import {E8ServerComponent} from "./e8-server/e8-server.component";
 import { CockpitComponent } from './e8-server/cockpit/cockpit.component';
+import { E9LifecycleTrackerComponent } from './e9-lifecycle-tracker/e9-lifecycle-tracker.component';
+import { TextOutputComponent } from './e9-lifecycle-tracker/text-output/text-output.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +35,8 @@ import { CockpitComponent } from './e8-server/cockpit/cockpit.component';
         ServerComponentComponent,
         E8ServerComponent,
         CockpitComponent,
+        E9LifecycleTrackerComponent,
+        TextOutputComponent,
     ],
   imports: [
     BrowserModule,

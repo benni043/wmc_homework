@@ -1,7 +1,12 @@
 <div [class.colored]="type === 'Exam'" id="flex">
-  <span>{{name}}</span>
-  <span>{{type}}</span>
+  <div id="flex1">
+    <span>{{name}}</span>
+    <span>{{type}}</span>
+  </div>
 
-  <button (click)="delete()">remove</button>
-  <button (click)="copy()">copy</button>
+  <div id="flex2">
+    <button id="remove" (click)="delete()">remove</button>
+    <button id="copy" (click)="copy()">copy</button>
+  </div>
+
 </div>

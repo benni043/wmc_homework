@@ -1,0 +1,10 @@
+.blink {
+  background-color: lightcoral;
+}
+
+div {
+  margin: 5px;
+  width: min-content;
+
+  font-size: 20px;
+}

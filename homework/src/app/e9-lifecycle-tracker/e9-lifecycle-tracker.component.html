@@ -1,0 +1,8 @@
+<div id="flex1">
+  <input [(ngModel)]="text" type="text" name="textField" id="textField" placeholder="input">
+
+  <button (click)="addComponent()">Set output</button>
+  <button (click)="delete()">Destroy Component</button>
+
+  <app-text-output [text]="inputText" *ngIf="inputText != null"></app-text-output>
+</div>

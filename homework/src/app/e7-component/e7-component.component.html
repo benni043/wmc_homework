@@ -1,5 +1,10 @@
 <div id="flex">
-  <app-error-message class="box"></app-error-message>
-  <div class="app-warning-message box"></div>
-  <div class="app-warning-message box"></div>
+  <app-error-message class="box" [message]="'Error'"></app-error-message>
+  <div class="app-warning-message box" [message]="'Warning! Something is wrong!'"></div>
+  <div class="app-warning-message box" [message]="'Warning! Something is wrong!'"></div>
+
+  <div *ngFor="let error of runningErrors">
+    <app-error-message [message]="error.text" *ngIf="error.type === 'Error'"></app-error-message>
+    <div class="app-warning-message box" [message]="error.text" *ngIf="error.type === 'Warn'"></div>
+  </div>
 </div>

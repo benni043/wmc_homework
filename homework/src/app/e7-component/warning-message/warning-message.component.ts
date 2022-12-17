@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {LoggerService} from "../logger.service";
 
 @Component({
   selector: '.app-warning-message',
@@ -14,9 +15,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WarningMessageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loggerService: LoggerService) { }
 
   ngOnInit(): void {
+  }
+
+  @Input() message: string;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.loggerService.warn(`${changes['message'].previousValue} --> ${this.message}`);
   }
 
 }

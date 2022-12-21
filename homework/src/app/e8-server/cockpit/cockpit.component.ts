@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Observable} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {ServerManagementService} from "../server-management.service";
 
 @Component({
   selector: 'app-cockpit',
@@ -8,24 +8,21 @@ import {Observable} from "rxjs";
 })
 export class CockpitComponent implements OnInit {
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-    this.copyServer.subscribe((server) => {
+  constructor(private serverManagementService: ServerManagementService) {
+    this.serverManagementService.copy.subscribe((server: {name: string, type: string}) => {
       this.name = server.name;
       this.type = server.type;
     })
   }
 
-  @Output() nameTypeEvent = new EventEmitter<{ name: string, type: string }>();
-  @Input() copyServer: Observable<{ name: string, type: string }>;
+  ngOnInit(): void {
+  }
 
   name: string = "";
-  type: string = "Training";
+  type: string = "";
 
   add(name: string, type: string) {
-    this.nameTypeEvent.emit({name: name, type: type});
+    this.serverManagementService.addNewServer({name: name, type: type});
   }
 
 }

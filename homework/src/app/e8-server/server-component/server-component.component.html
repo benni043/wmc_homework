@@ -1,12 +1,21 @@
-<div [class.colored]="type === 'Exam'" id="flex">
+<div [class.colored]="serverManagementService.servers[id].type === 'Exam'" id="flex">
+
   <div id="flex1">
-    <span>{{name}}</span>
-    <span>{{type}}</span>
+    <span>{{serverManagementService.servers[id].name}}</span>
+    <span>{{serverManagementService.servers[id].type}}</span>
   </div>
 
   <div id="flex2">
-    <button id="remove" (click)="delete()">remove</button>
-    <button id="copy" (click)="copy()">copy</button>
+    <button id="remove" (click)="delete()"><span>remove</span></button>
+
+    <button id="copy" (click)="copy()"><span>copy</span></button>
+  </div>
+
+  <div id="flex3">
+    <button id="isolate" (click)="isolation.isolate()">
+      <span *ngIf="isolation.isolated">isolated</span>
+      <span *ngIf="!isolation.isolated">open</span>
+    </button>
   </div>
 
 </div>

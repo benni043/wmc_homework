@@ -8,7 +8,6 @@ export class LoggerService {
   constructor() { }
 
   count: number = 0;
-
   warn(msg: string) {
     console.log(`${this.count} WARN: ${msg}`);
     this.count++;

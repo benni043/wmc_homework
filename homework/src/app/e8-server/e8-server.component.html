@@ -1,8 +1,7 @@
 <div id="center">
-  <app-cockpit [copyServer]="copySubject.asObservable()" (nameTypeEvent)="addNewServer($event)"></app-cockpit>
+  <app-cockpit></app-cockpit>
 
-  <div *ngFor="let server of servers">
-    <app-server-component (copyEvent)="copy($event)" (deleteEvent)="delete($event)" [name]="server.name" [type]="server.type" [id]="server.id">
-      </app-server-component>
+  <div *ngFor="let server of serverManagementService.servers">
+    <app-server-component [id]="server.id"></app-server-component>
   </div>
 </div>

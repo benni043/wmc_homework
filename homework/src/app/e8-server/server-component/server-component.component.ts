@@ -1,26 +1,25 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {ServerManagementService} from "../server-management.service";
+import {IsolationService} from "../isolation.service";
 
 @Component({
   selector: 'app-server-component',
   templateUrl: './server-component.component.html',
-  styleUrls: ['./server-component.component.css']
+  styleUrls: ['./server-component.component.css'],
+  providers: [IsolationService]
 })
 export class ServerComponentComponent  {
 
-  @Input() name: string = "";
-  @Input() type: string = "";
+  constructor(public serverManagementService: ServerManagementService, public isolation: IsolationService) {
+  }
   @Input() id: number = 0;
 
-  @Output() deleteEvent = new EventEmitter<number>();
-
   delete() {
-    this.deleteEvent.emit(this.id);
+    this.serverManagementService.delete(this.id);
   }
 
-  @Output() copyEvent = new EventEmitter<{ name: string, type: string }>();
-
   copy() {
-    this.copyEvent.emit({name: this.name, type: this.type});
+    this.serverManagementService.copy.emit({name: this.serverManagementService.servers[this.id].name, type: this.serverManagementService.servers[this.id].type});
   }
 
 }

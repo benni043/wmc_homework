@@ -11,12 +11,10 @@ export class E7ComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     setInterval(() => {
       let randNum = Math.floor(Math.random() * this.errors.length);
       this.runningErrors.push({text: this.errors[randNum].text, type: this.errors[randNum].type});
     }, 5000);
-
   }
 
   errors: { text: string, type: string }[] = [

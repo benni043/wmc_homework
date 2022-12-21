@@ -1,14 +1,16 @@
 .colored {
-  border: 3px solid deeppink;
+  border: 3px solid blueviolet !important;
 }
 
 button {
   width: 100px;
-  border-radius: 4px;
+  border-radius: 8px;
 
   font-size: 20px;
 
   margin: 3px;
+
+  border: 1px solid black;
 }
 
 #remove {
@@ -31,13 +33,23 @@ button {
 span {
   padding: 5px;
   font-size: 20px;
+
+  margin-bottom: 2px;
+
+  min-width: 100px;
 }
 
 #flex {
   display: flex;
   flex-direction: row;
 
-  margin: 10px;
+  margin: 10px auto;
 
   width: max-content;
+
+  background-color: grey;
+
+  border: 3px solid grey;
+  border-radius: 5px;
+  padding: 10px;
 }

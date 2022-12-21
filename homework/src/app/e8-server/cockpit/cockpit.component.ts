@@ -18,8 +18,8 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  name: string = "";
-  type: string = "";
+  name: string = "server1";
+  type: string = "training";
 
   add(name: string, type: string) {
     this.serverManagementService.addNewServer({name: name, type: type});

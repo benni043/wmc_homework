@@ -2,8 +2,9 @@
   <input class="elem" [(ngModel)]="name" type="text" name="name" id="name" placeholder="Server Name">
 
   <select class="elem" [(ngModel)]="type">
-    <option value="Training">Training</option>
-    <option value="Exam">Exam</option>
+    <optgroup label="server">server</optgroup>
+    <option value="training">training</option>
+    <option value="exam">exam</option>
   </select>
 
   <button class="elem" (click)="add(name, type)">create</button>

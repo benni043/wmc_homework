@@ -7,7 +7,7 @@ export class ServerManagementService {
   constructor() {
   }
 
-  copy = new EventEmitter<{name: string, type: string}>();
+  copy = new EventEmitter<{ name: string, type: string }>();
 
   index: number = 0;
   servers: { name: string, type: string, id: number }[] = [];
@@ -17,9 +17,17 @@ export class ServerManagementService {
     this.index++;
   }
 
-  delete(index: number) {
+  delete(id: number) {
     for (let i = 0; i < this.servers.length; i++) {
-      if (index == this.servers[i].id) this.servers.splice(i, 1);
+      if (id == this.servers[i].id) this.servers.splice(i, 1);
     }
+  }
+
+  getServer(id: number): { name: string, type: string, id: number }  {
+    for (let i = 0; i < this.servers.length; i++) {
+      if (id == this.servers[i].id) return this.servers[i];
+    }
+
+    return {name: "", type: "", id: -1};
   }
 }

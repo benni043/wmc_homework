@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ServerManagementService} from "../server-management.service";
 import {IsolationService} from "../isolation.service";
 
@@ -8,18 +8,23 @@ import {IsolationService} from "../isolation.service";
   styleUrls: ['./server-component.component.css'],
   providers: [IsolationService]
 })
-export class ServerComponentComponent  {
+export class ServerComponentComponent implements OnInit {
 
   constructor(public serverManagementService: ServerManagementService, public isolation: IsolationService) {
   }
   @Input() id: number = 0;
+  server: { name: string, type: string, id: number };
+
+  ngOnInit() {
+    this.server = this.serverManagementService.getServer(this.id);
+  }
 
   delete() {
     this.serverManagementService.delete(this.id);
   }
 
   copy() {
-    this.serverManagementService.copy.emit({name: this.serverManagementService.servers[this.id].name, type: this.serverManagementService.servers[this.id].type});
+    this.serverManagementService.copy.emit({name: this.server.name, type: this.server.type});
   }
 
 }

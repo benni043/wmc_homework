@@ -1,0 +1,7 @@
+<div id="child" cdkDrag>
+  <h3 id="head">Kind</h3>
+  <div id="vorname">Vorname: {{child.vorname}}</div>
+  <div id="nachname">Nachname: {{child.nachname}}</div>
+  <div id="geburtsdatum">Geburtsdatum: {{child.geburtsdatum | date : "dd.MM.yyyy"}}</div>
+  <div id="alter">Alter: {{getAge()}}</div>
+</div>

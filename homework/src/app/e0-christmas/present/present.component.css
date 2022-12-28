@@ -1,0 +1,11 @@
+#present {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  max-width: max-content;
+}
+
+#head {
+  margin: 1px;
+}

@@ -32,6 +32,6 @@ export class TextOutputComponent implements OnInit, OnChanges, DoCheck, OnDestro
     console.log("ngOnDestroy")
   }
 
-  @Input() text: string = "";
+  @Input() text: string;
 
 }

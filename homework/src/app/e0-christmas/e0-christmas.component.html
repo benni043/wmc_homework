@@ -1,0 +1,28 @@
+<div id="createChild">
+  <input type="text" name="vorname" id="vorname" placeholder="Vorname" [(ngModel)]="vorname">
+  <input type="text" name="nachname" id="nachname" placeholder="Nachname" [(ngModel)]="nachname">
+  <input type="date" name="geburtsdatum" id="geburtsdatum" placeholder="Geburtsdatum" [(ngModel)]="geburtsdatum">
+
+  <button (click)="erstelleKind(vorname, nachname, geburtsdatum)">Erstelle Kind</button>
+</div>
+
+<div id="createPresent">
+  <input type="text" name="inhalt" id="inhalt" placeholder="Inhalt" [(ngModel)]="inhalt">
+  <input type="text" name="farbe" id="farbe" placeholder="Farbe" [(ngModel)]="farbe">
+
+  <select [(ngModel)]="groesse">
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+  </select>
+
+  <button (click)="erstelleGeschenk(inhalt, farbe, groesse)">Erstelle Geschenk</button>
+</div>
+
+<div id="showChildren" *ngFor="let child of childPresentService.children">
+  <app-child [childId]="child.id"></app-child>
+</div>
+
+<div id="showPresents" *ngFor="let present of childPresentService.presents">
+  <app-present [presentId]="present.id"></app-present>
+</div>

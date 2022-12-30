@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChildPresentServiceService} from "../child-present-service.service";
 
 @Component({
   selector: 'app-present',
@@ -8,14 +7,13 @@ import {ChildPresentServiceService} from "../child-present-service.service";
 })
 export class PresentComponent implements OnInit {
 
-  constructor(private childPresentService: ChildPresentServiceService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.present = this.childPresentService.getPresent(this.presentId);
   }
 
-  @Input() presentId: number = 0;
-
-  present: {id: number, inhalt: string, farbe: string, groesse: string};
+  @Input() inhalt: string;
+  @Input() farbe: string;
+  @Input() groesse: string;
 
 }

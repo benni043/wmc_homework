@@ -4,8 +4,10 @@
   padding: 5px;
   margin: 5px;
   max-width: max-content;
+  text-align: center;
 }
 
 #head {
   margin: 1px;
 }
+

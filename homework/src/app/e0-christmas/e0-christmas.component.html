@@ -1,28 +1,32 @@
-<div id="createChild">
-  <input type="text" name="vorname" id="vorname" placeholder="Vorname" [(ngModel)]="vorname">
-  <input type="text" name="nachname" id="nachname" placeholder="Nachname" [(ngModel)]="nachname">
-  <input type="date" name="geburtsdatum" id="geburtsdatum" placeholder="Geburtsdatum" [(ngModel)]="geburtsdatum">
+<div id="generate">
+  <div id="createChild">
+    <app-create-child></app-create-child>
+  </div>
 
-  <button (click)="erstelleKind(vorname, nachname, geburtsdatum)">Erstelle Kind</button>
+  <div id="createPresent">
+    <app-create-present></app-create-present>
+  </div>
 </div>
 
-<div id="createPresent">
-  <input type="text" name="inhalt" id="inhalt" placeholder="Inhalt" [(ngModel)]="inhalt">
-  <input type="text" name="farbe" id="farbe" placeholder="Farbe" [(ngModel)]="farbe">
+<div id="display">
+  <div class="children">
+    <h2>Kinder</h2>
+    <div *ngFor="let child of childPresentService.children">
+      <app-child [childId]="child.id"></app-child>
+    </div>
+  </div>
 
-  <select [(ngModel)]="groesse">
-    <option value="S">S</option>
-    <option value="M">M</option>
-    <option value="L">L</option>
-  </select>
+  <div class="presents">
+    <h2>Verfügbare Geschenke</h2>
+    <div id="availablePresents"
+      cdkDropList
+      [cdkDropListData]="childPresentService.presents"
+      [cdkDropListConnectedTo]="childPresentService.allListIds"
+      (cdkDropListDropped)="childPresentService.drop($event)">
 
-  <button (click)="erstelleGeschenk(inhalt, farbe, groesse)">Erstelle Geschenk</button>
-</div>
-
-<div id="showChildren" *ngFor="let child of childPresentService.children">
-  <app-child [childId]="child.id"></app-child>
-</div>
-
-<div id="showPresents" *ngFor="let present of childPresentService.presents">
-  <app-present [presentId]="present.id"></app-present>
+      <div *ngFor="let availablePresents of childPresentService.presents" cdkDrag>
+        <app-present [inhalt]="availablePresents.inhalt" [farbe]="availablePresents.farbe" [groesse]="availablePresents.groesse"></app-present>
+      </div>
+    </div>
+  </div>
 </div>

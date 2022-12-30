@@ -1,0 +1,10 @@
+<input type="text" name="inhalt" id="inhalt" placeholder="Inhalt" [(ngModel)]="inhalt">
+<input type="color" name="farbe" id="farbe" placeholder="Farbe" [(ngModel)]="farbe">
+
+<select [(ngModel)]="groesse">
+  <option value="S">S</option>
+  <option value="M">M</option>
+  <option value="L">L</option>
+</select>
+
+<button (click)="erstelleGeschenk(inhalt, farbe, groesse)">Erstelle Geschenk</button>

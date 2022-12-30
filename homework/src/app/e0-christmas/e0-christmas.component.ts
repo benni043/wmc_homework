@@ -11,21 +11,7 @@ export class E0ChristmasComponent implements OnInit {
   constructor(public childPresentService: ChildPresentServiceService) { }
 
   ngOnInit(): void {
+
   }
 
-  vorname: string = "";
-  nachname: string = "";
-  geburtsdatum: Date;
-
-  inhalt: string;
-  farbe: string;
-  groesse: string;
-
-  erstelleGeschenk(inhalt: string, farbe: string, groesse: string) {
-    this.childPresentService.addNewPresent({inhalt, farbe, groesse});
-  }
-
-  erstelleKind(vorname: string, nachname: string, geburtsdatum: Date) {
-    this.childPresentService.addNewChild({vorname, nachname, geburtsdatum});
-  }
 }

@@ -1,0 +1,5 @@
+<input type="text" name="vorname" id="vorname" placeholder="Vorname" [(ngModel)]="vorname">
+<input type="text" name="nachname" id="nachname" placeholder="Nachname" [(ngModel)]="nachname">
+<input type="date" name="geburtsdatum" id="geburtsdatum" placeholder="Geburtsdatum" [(ngModel)]="geburtsdatum">
+
+<button (click)="erstelleKind(vorname, nachname, geburtsdatum)">Erstelle Kind</button>

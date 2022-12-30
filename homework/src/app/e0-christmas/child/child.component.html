@@ -1,7 +1,19 @@
-<div id="child" cdkDrag>
+<div id="child" >
   <h3 id="head">Kind</h3>
+  <hr>
   <div id="vorname">Vorname: {{child.vorname}}</div>
   <div id="nachname">Nachname: {{child.nachname}}</div>
   <div id="geburtsdatum">Geburtsdatum: {{child.geburtsdatum | date : "dd.MM.yyyy"}}</div>
   <div id="alter">Alter: {{getAge()}}</div>
+
+  <div class="presents" [id]="'geschenk' + childId"
+       cdkDropList
+       [cdkDropListData]="child.geschenke"
+       [cdkDropListConnectedTo]="childPresentService.allListIds"
+       (cdkDropListDropped)="childPresentService.drop($event)">
+
+    <div *ngFor="let presentsOfChild of child.geschenke" cdkDrag>
+      <app-present [inhalt]="presentsOfChild.inhalt" [farbe]="presentsOfChild.farbe" [groesse]="presentsOfChild.groesse"></app-present>
+    </div>
+  </div>
 </div>

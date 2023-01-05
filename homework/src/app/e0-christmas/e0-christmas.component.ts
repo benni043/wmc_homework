@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ChildPresentServiceService} from "./child-present-service.service";
+import {PresentService} from "./present.service";
 
 @Component({
   selector: 'app-e0-christmas',
@@ -8,7 +9,7 @@ import {ChildPresentServiceService} from "./child-present-service.service";
 })
 export class E0ChristmasComponent implements OnInit {
 
-  constructor(public childPresentService: ChildPresentServiceService) { }
+  constructor(public childPresentService: ChildPresentServiceService, public presentService: PresentService) { }
 
   ngOnInit(): void {
 

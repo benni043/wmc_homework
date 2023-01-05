@@ -1,32 +1,30 @@
-<div id="generate">
-  <div id="createChild">
-    <app-create-child></app-create-child>
-  </div>
+<nav>
+  <div id="menu">
+    <div>
+      <app-create-child></app-create-child>
+      <br>
+    </div>
 
-  <div id="createPresent">
-    <app-create-present></app-create-present>
-  </div>
-</div>
-
-<div id="display">
-  <div class="children">
-    <h2>Kinder</h2>
     <div *ngFor="let child of childPresentService.children">
       <app-child [childId]="child.id"></app-child>
+      <br>
     </div>
   </div>
 
-  <div class="presents">
-    <h2>Verfügbare Geschenke</h2>
-    <div id="availablePresents"
-      cdkDropList
-      [cdkDropListData]="childPresentService.presents"
-      [cdkDropListConnectedTo]="childPresentService.allListIds"
-      (cdkDropListDropped)="childPresentService.drop($event)">
+  <div id="menu2">
+    <div>
+      <app-create-present></app-create-present>
+    </div>
 
-      <div *ngFor="let availablePresents of childPresentService.presents" cdkDrag>
+    <div id="availablePresents"
+         cdkDropList
+         [cdkDropListData]="presentService.presents"
+         [cdkDropListConnectedTo]="presentService.allPresentArrays"
+         (cdkDropListDropped)="presentService.drop($event)">
+
+      <div *ngFor="let availablePresents of presentService.presents" cdkDrag>
         <app-present [inhalt]="availablePresents.inhalt" [farbe]="availablePresents.farbe" [groesse]="availablePresents.groesse"></app-present>
       </div>
     </div>
   </div>
-</div>
+</nav>

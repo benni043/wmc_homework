@@ -1,19 +1,28 @@
 #child {
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
   margin: 5px ;
-  max-width: max-content;
   text-align: center;
 }
 
-#head {
+.head {
   margin: 1px;
 }
 
 .presents {
-  min-height: 80px;
+  min-height: 100px;
+  min-width: 100px;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
+  background-color: #eeeeee;
+
+  border-radius: 5px;
+  margin: 15px 5px 5px 5px;
+}
+
+#geburtsdatum, #alter {
+  font-size: 18px;
 }

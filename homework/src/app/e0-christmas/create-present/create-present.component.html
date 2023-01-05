@@ -1,10 +1,22 @@
-<input type="text" name="inhalt" id="inhalt" placeholder="Inhalt" [(ngModel)]="inhalt">
-<input type="color" name="farbe" id="farbe" placeholder="Farbe" [(ngModel)]="farbe">
+<nav>
+  <div class="group">
+    <input type="text" name="inhalt" id="inhalt" placeholder="Inhalt" [(ngModel)]="inhalt">
+  </div>
 
-<select [(ngModel)]="groesse">
-  <option value="S">S</option>
-  <option value="M">M</option>
-  <option value="L">L</option>
-</select>
+  <div class="group">
+    <input type="color" name="farbe" id="farbe" placeholder="Farbe" [(ngModel)]="farbe">
+  </div>
 
-<button (click)="erstelleGeschenk(inhalt, farbe, groesse)">Erstelle Geschenk</button>
+  <div class="group">
+    <select [(ngModel)]="groesse">
+      <option disabled>Größe</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+    </select>
+  </div>
+
+  <div id="button">
+    <button (click)="erstelleGeschenk(inhalt, farbe, groesse)">Erstelle Geschenk</button>
+  </div>
+</nav>

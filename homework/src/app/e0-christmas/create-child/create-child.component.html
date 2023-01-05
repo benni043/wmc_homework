@@ -1,5 +1,17 @@
-<input type="text" name="vorname" id="vorname" placeholder="Vorname" [(ngModel)]="vorname">
-<input type="text" name="nachname" id="nachname" placeholder="Nachname" [(ngModel)]="nachname">
-<input type="date" name="geburtsdatum" id="geburtsdatum" placeholder="Geburtsdatum" [(ngModel)]="geburtsdatum">
+<form>
+  <div class="group">
+    <input name="vorname" id="vorname" placeholder="Vorname" [(ngModel)]="vorname">
+  </div>
 
-<button (click)="erstelleKind(vorname, nachname, geburtsdatum)">Erstelle Kind</button>
+  <div class="group">
+    <input type="text" name="nachname" id="nachname" placeholder="Nachname" [(ngModel)]="nachname">
+  </div>
+
+  <div class="group">
+    <input type="date" name="geburtsdatum" id="geburtsdatum" [(ngModel)]="geburtsdatum">
+  </div>
+
+  <div id="button">
+    <button class="elem" (click)="erstelleKind(vorname, nachname, geburtsdatum)">Erstelle Kind</button>
+  </div>
+</form>

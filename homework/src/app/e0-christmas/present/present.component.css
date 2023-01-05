@@ -5,9 +5,15 @@
   margin: 5px;
   max-width: max-content;
   text-align: center;
+
+  min-width: 80px;
+  min-height: 80px;
 }
 
 #head {
   margin: 1px;
 }
 
+#groesse {
+  font-size: 18px;
+}

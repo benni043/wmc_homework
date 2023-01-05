@@ -15,7 +15,7 @@ export class CreateChildComponent implements OnInit {
 
   vorname: string = "";
   nachname: string = "";
-  geburtsdatum: Date;
+  geburtsdatum: Date = new Date;
 
   erstelleKind(vorname: string, nachname: string, geburtsdatum: Date) {
     this.childPresentService.addNewChild({vorname, nachname, geburtsdatum});

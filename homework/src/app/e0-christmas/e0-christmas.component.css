@@ -1,3 +1,25 @@
 #availablePresents {
   min-height: 100px;
+  min-width: 100px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+
+  margin-top: 20px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-evenly;
+}
+
+#menu, #menu2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+app-child, app-present {
+  text-align: center;
 }

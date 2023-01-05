@@ -22,7 +22,6 @@ import { PresentComponent } from './e0-christmas/present/present.component';
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { TestComponent } from './e0-christmas/test/test.component';
 import { CreateChildComponent } from './e0-christmas/create-child/create-child.component';
 import { CreatePresentComponent } from './e0-christmas/create-present/create-present.component';
 
@@ -47,7 +46,6 @@ import { CreatePresentComponent } from './e0-christmas/create-present/create-pre
         E0ChristmasComponent,
         ChildComponent,
         PresentComponent,
-        TestComponent,
         CreateChildComponent,
         CreatePresentComponent,
     ],

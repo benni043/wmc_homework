@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ChildPresentServiceService} from "../child-present-service.service";
+import {PresentService} from "../present.service";
 
 @Component({
   selector: 'app-child',
@@ -8,7 +9,7 @@ import {ChildPresentServiceService} from "../child-present-service.service";
 })
 export class ChildComponent implements OnInit {
 
-  constructor(public childPresentService: ChildPresentServiceService) { }
+  constructor(public presentService: PresentService, private childPresentService: ChildPresentServiceService) { }
 
   ngOnInit(): void {
     this.child = this.childPresentService.getChild(this.childId);
@@ -19,6 +20,8 @@ export class ChildComponent implements OnInit {
   child: {id: number, vorname: string, nachname: string, geburtsdatum: Date, geschenke: {id: number, inhalt: string, farbe: string, groesse: string }[]};
 
   getAge(): number {
-    return -1;
+    let ageDifMs = Date.now() - new Date(this.child.geburtsdatum).getTime();
+    let ageDate = new Date(ageDifMs);
+    return  Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 }

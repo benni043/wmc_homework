@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ChildPresentServiceService} from "../child-present-service.service";
+import {PresentService} from "../present.service";
 
 @Component({
   selector: 'app-create-present',
@@ -8,17 +8,17 @@ import {ChildPresentServiceService} from "../child-present-service.service";
 })
 export class CreatePresentComponent implements OnInit {
 
-  constructor(private childPresentService: ChildPresentServiceService) { }
+  constructor(private presentServiceService: PresentService) { }
 
   ngOnInit(): void {
   }
 
   inhalt: string;
   farbe: string;
-  groesse: string;
+  groesse: string = "Größe";
 
   erstelleGeschenk(inhalt: string, farbe: string, groesse: string) {
-    this.childPresentService.addNewPresent({inhalt, farbe, groesse});
+    this.presentServiceService.addNewPresent({inhalt, farbe, groesse});
   }
 
 

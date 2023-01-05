@@ -1,25 +1,12 @@
 import {Injectable} from '@angular/core';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
+import {PresentService} from "./present.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChildPresentServiceService {
 
-  drop(event: CdkDragDrop<{ inhalt: string, farbe: string, groesse: string }[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
-  }
-
-  allListIds: string[] = ["availablePresents"];
+  constructor(public presentService: PresentService) { }
 
   children: { id: number, vorname: string, nachname: string, geburtsdatum: Date, geschenke: {id: number, inhalt: string, farbe: string, groesse: string }[] }[] = [];
   childId: number = 0;
@@ -33,7 +20,7 @@ export class ChildPresentServiceService {
       geschenke: []
     });
 
-    this.allListIds.push("geschenk" + this.childId);
+    this.presentService.allPresentArrays.push("geschenk" + this.childId);
     this.childId++;
   }
 
@@ -43,13 +30,6 @@ export class ChildPresentServiceService {
     }
 
     return {id: -1, vorname: "", nachname: "", geburtsdatum: undefined, geschenke: []};
-  }
-
-
-  presents: { inhalt: string, farbe: string, groesse: string }[] = [];
-
-  addNewPresent(present: { inhalt: string, farbe: string, groesse: string }) {
-    this.presents.push({inhalt: present.inhalt, farbe: present.farbe, groesse: present.groesse});
   }
 
 }

@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {Subject} from "rxjs";
 import {ServerManagementService} from "./server-management.service";
 
 @Component({

@@ -13,12 +13,16 @@ export class CreatePresentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  inhalt: string;
-  farbe: string;
-  groesse: string = "Größe";
+  inhalt: string = "";
+  farbe: string = "";
+  groesse: string = "S";
 
   erstelleGeschenk(inhalt: string, farbe: string, groesse: string) {
-    this.presentServiceService.addNewPresent({inhalt, farbe, groesse});
+    if(inhalt != "") {
+      this.presentServiceService.addNewPresent({inhalt, farbe, groesse});
+    } else {
+      alert("Geben Sie alle Attribute an!")
+    }
   }
 
 

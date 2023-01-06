@@ -1,5 +1,9 @@
 <div id="present" [style]="'background-color: ' + farbe">
-  <h3 id="head">{{inhalt}}</h3>
+  <div class="headdiv">
+    <h3 id="head">{{inhalt}}</h3>
+    <button (click)="delete()"></button>
+  </div>
+
   <hr>
   <div id="groesse">Größe: {{groesse}}</div>
 </div>

@@ -2,8 +2,7 @@
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
-  margin: 5px ;
-  text-align: center;
+  margin: 5px;
 }
 
 .head {
@@ -25,4 +24,30 @@
 
 #geburtsdatum, #alter {
   font-size: 18px;
+}
+
+.headdiv {
+  position: relative;
+}
+
+.headdiv button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+button:after{
+  content: "\00d7";
+}
+
+button {
+  margin-left: auto;
+
+  border: none;
+  background: none;
+  font-size: 20px;
+}
+
+button:hover {
+  transform: scale(120%);
 }

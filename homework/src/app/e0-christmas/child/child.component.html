@@ -1,5 +1,8 @@
 <div id="child" >
-  <h3 class="head">{{child.vorname}}</h3>
+  <div class="headdiv">
+    <h3 class="head">{{child.vorname}}</h3>
+    <button (click)="delete()"></button>
+  </div>
   <h3 class="head">{{child.nachname}}</h3>
   <hr>
   <div id="geburtsdatum">Geburtsdatum: {{child.geburtsdatum | date : "dd.MM.yyyy"}}</div>
@@ -13,7 +16,7 @@
        (cdkDropListDropped)="presentService.drop($event)">
 
     <div id="presents" *ngFor="let presentsOfChild of child.geschenke" cdkDrag>
-      <app-present [inhalt]="presentsOfChild.inhalt" [farbe]="presentsOfChild.farbe" [groesse]="presentsOfChild.groesse"></app-present>
+      <app-present [whichList]="childId" [id]="presentsOfChild.id" [inhalt]="presentsOfChild.inhalt" [farbe]="presentsOfChild.farbe" [groesse]="presentsOfChild.groesse"></app-present>
     </div>
   </div>
 </div>

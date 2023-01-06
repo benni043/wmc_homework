@@ -23,7 +23,7 @@
          (cdkDropListDropped)="presentService.drop($event)">
 
       <div *ngFor="let availablePresents of presentService.presents" cdkDrag>
-        <app-present [inhalt]="availablePresents.inhalt" [farbe]="availablePresents.farbe" [groesse]="availablePresents.groesse"></app-present>
+        <app-present [whichList]="-1" [id]="availablePresents.id" [inhalt]="availablePresents.inhalt" [farbe]="availablePresents.farbe" [groesse]="availablePresents.groesse"></app-present>
       </div>
     </div>
   </div>

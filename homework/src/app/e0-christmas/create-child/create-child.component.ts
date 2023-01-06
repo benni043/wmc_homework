@@ -18,7 +18,11 @@ export class CreateChildComponent implements OnInit {
   geburtsdatum: Date = new Date;
 
   erstelleKind(vorname: string, nachname: string, geburtsdatum: Date) {
-    this.childPresentService.addNewChild({vorname, nachname, geburtsdatum});
+    if(this.vorname != "" && this.nachname != "" && geburtsdatum != null) {
+      this.childPresentService.addNewChild({vorname, nachname, geburtsdatum});
+    } else {
+      alert("Geben Sie alle Attribute an!")
+    }
   }
 
 }

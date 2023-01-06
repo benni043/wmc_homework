@@ -24,4 +24,8 @@ export class ChildComponent implements OnInit {
     let ageDate = new Date(ageDifMs);
     return  Math.abs(ageDate.getUTCFullYear() - 1970);
   }
+
+  delete(): void {
+    this.childPresentService.removeChild(this.childId);
+  }
 }

@@ -52,7 +52,6 @@ export class ChildPresentServiceService {
     return -1;
   }
   deletePresent(id: number, childId: number) {
-    console.log(this.getChild(childId).geschenke)
     this.getChild(childId).geschenke.splice(this.getPresentIdx(id), 1);
   }
 

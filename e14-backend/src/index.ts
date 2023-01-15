@@ -7,27 +7,30 @@ let rawData = "Benedikt";
 
 createServer((req: IncomingMessage, res: ServerResponse) => {
     if (req.method == 'GET' && req.url == '/hello') {
-        getHello(req, res)
+        getHello(res);
     } else if (req.method == 'GET' && req.url == '/goodbye') {
-        getGoodbye(req, res)
+        getGoodbye(res);
     } else if (req.method == 'POST' && req.url == '/hello') {
-        postHello(req, res)
+        postHello(req, res);
     } else {
-        res.writeHead(404, {'content-type': 'text/html'})
-        res.write("404")
-        res.end()
+        urlNotFound(res);
     }
 
 }).listen(port, () => console.log(`Server listens on ${port}`))
 
+function urlNotFound(res: ServerResponse) {
+    res.writeHead(404, {'content-type': 'text/html'})
+    res.write(fs.readFileSync("src/index404.html"))
+    res.end()
+}
 
-function getHello(req: IncomingMessage, res: ServerResponse) {
+function getHello(res: ServerResponse) {
     res.writeHead(200, {'content-type': 'text/html'})
     res.write(Buffer.from(fs.readFileSync("src/index.html").toString().replace("*", rawData)));
     res.end()
 }
 
-function getGoodbye(req: IncomingMessage, res: ServerResponse) {
+function getGoodbye(res: ServerResponse) {
     rawData = "Benedikt";
 
     res.writeHead(302, {"Location": "/hello"})

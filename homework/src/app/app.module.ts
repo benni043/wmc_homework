@@ -24,6 +24,9 @@ import {FormsModule} from "@angular/forms";
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { CreateChildComponent } from './e0-christmas/create-child/create-child.component';
 import { CreatePresentComponent } from './e0-christmas/create-present/create-present.component';
+import { E00StarewarsComponent } from './e00-starewars/e00-starewars.component';
+import { JediFormComponentComponent } from './e00-starewars/jedi-form-component/jedi-form-component.component';
+import { JediListeComponent } from './e00-starewars/jedi-liste/jedi-liste.component';
 
 @NgModule({
     declarations: [
@@ -48,6 +51,9 @@ import { CreatePresentComponent } from './e0-christmas/create-present/create-pre
         PresentComponent,
         CreateChildComponent,
         CreatePresentComponent,
+        E00StarewarsComponent,
+        JediFormComponentComponent,
+        JediListeComponent,
     ],
     imports: [
         BrowserModule,

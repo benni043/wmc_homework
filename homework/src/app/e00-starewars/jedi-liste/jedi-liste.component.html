@@ -1,6 +1,0 @@
-<div>
-  <input *ngIf="jediService.jedis.includes(jedi)" type="checkbox" name="mission" id="mission" [(ngModel)]="mission" (click)="addJediToMission()">
-  <div>{{jedi.name}}</div>
-  <div>{{jedi.rang}}</div>
-  <button *ngIf="jedi.counter == 2" (click)="jediService.promote(this.jediService.getIdToJedi(jedi), this.jediService.whichRankNext(jedi))">befördern</button>
-</div>

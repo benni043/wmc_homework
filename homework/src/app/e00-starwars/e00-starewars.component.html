@@ -1,0 +1,15 @@
+<div>
+  <app-jedi-form-component (jedi)="jediService.addJedi($event)"></app-jedi-form-component>
+</div>
+
+<button [disabled]="!jediService.isMissionAbleToStart()" (click)="jediService.startMission()">startMission</button>
+
+<h1>Jedi-Normal</h1>
+<div *ngFor="let jedi of jediService.jedis">
+  <app-jedi-liste [jedi]="jedi"></app-jedi-liste>
+</div>
+
+<h1>Jedi-Hoher-Rat</h1>
+<div *ngFor="let jediHoch of jediService.jedisImHohenRat">
+  <app-jedi-liste [jedi]="jediHoch"></app-jedi-liste>
+</div>

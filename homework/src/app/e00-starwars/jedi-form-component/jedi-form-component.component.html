@@ -1,0 +1,12 @@
+<div>
+  <input type="text" name="name" id="name" [(ngModel)]="name">
+
+  <select [(ngModel)]="rang">
+    <option>Padawan</option>
+    <option>Jedi-Ritter</option>
+    <option>Jedi-Meister</option>
+    <option>Sith-Lord</option>
+  </select>
+
+  <button [disabled]="jediService.executed" (click)="createJedi()">create</button>
+</div>

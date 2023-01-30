@@ -1,5 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {jedi} from "./jedi";
+import {compareNumbers} from "@angular/compiler-cli/src/version_helpers";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,6 @@ export class JediServiceService {
   jedis: jedi[] = [];
   jedisOnMission: jedi[] = [];
   jediReset: EventEmitter<void> = new EventEmitter<void>();
-  ranks: { rang: string, id: number }[] = [{rang: "Padawan", id: 0}, {
-    rang: "Jedi-Ritter",
-    id: 1
-  }, {rang: "Jedi-Meister", id: 2}]
 
   jedisImHohenRat: jedi[] = [];
 
@@ -60,25 +57,25 @@ export class JediServiceService {
     return -1;
   }
 
-  getRangID(rang: string): number {
-    for (let rank of this.ranks) {
-      if (rank.rang === rang) return rank.id;
-    }
-
-    return -1;
-  }
-
   promote(jedi: jedi) {
-    let jediID = this.getIdToJedi(jedi);
-    this.jedis[jediID].counter = 0;
+    let jediId: number = this.getIdToJedi(jedi);
 
-    if (jedi.rang == "Jedi-Meister") {
-      this.jedisImHohenRat.push(this.jedis[jediID]);
-      this.jedis.splice(jediID, 1);
-    } else {
-      jedi.rang = this.ranks[this.getRangID(jedi.rang) + 1].rang;
+    switch (jedi.rang) {
+      case "Padawan": {
+        this.jedis[jediId].rang = "Jedi-Ritter";
+        break;
+      }
+      case "Jedi-Ritter": {
+        this.jedis[jediId].rang = "Jedi-Meister";
+        break
+      }
+      case "Jedi-Meister": {
+        this.jedisImHohenRat.push(this.jedis[jediId]);
+        this.jedis.splice(jediId, 1);
+      }
     }
 
+    jedi.counter = 0;
   }
 
   order66() {
@@ -98,10 +95,6 @@ export class JediServiceService {
         this.jedis.splice(i, 1);
       }
     }
-
-
-
-
 
     this.jedisImHohenRat = [];
   }

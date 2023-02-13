@@ -2,17 +2,15 @@ import express from "express";
 
 const port = 3000
 const app = express();
+const fs = require('fs');
 
 app.use(express.urlencoded());
 
 let name = "Benedikt"
 
 app.get('/hello', (req, res) => {
-    let jsn = {name: name};
-    console.log(jsn)
-
-    res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
-    res.json(jsn);
+    res.send(fs.readFileSync("src/frontend/index.html").toString().replace("*", name));
+    res.end()
 })
 
 app.get('/goodbye', (req, res) => {
@@ -22,7 +20,7 @@ app.get('/goodbye', (req, res) => {
 })
 
 app.post('/hello', (req, res) => {
-    name = req.body.name;
+    name = req.body.greeting;
 
     res.redirect("/hello");
 })

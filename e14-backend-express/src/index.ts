@@ -2,14 +2,17 @@ import express from "express";
 
 const port = 3000
 const app = express();
-const fs = require('fs');
 
 app.use(express.urlencoded());
 
 let name = "Benedikt"
 
 app.get('/hello', (req, res) => {
-    res.send(fs.readFileSync("src/index.html").toString().replace("*", name));
+    let jsn = {name: name};
+    console.log(jsn)
+
+    res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.json(jsn);
 })
 
 app.get('/goodbye', (req, res) => {
@@ -19,13 +22,13 @@ app.get('/goodbye', (req, res) => {
 })
 
 app.post('/hello', (req, res) => {
-    name = req.body.greeting;
+    name = req.body.name;
 
     res.redirect("/hello");
 })
 
 app.get('/*', (req, res) => {
-    res.sendFile(__dirname + "/index404.html");
+    res.sendFile(__dirname + "/frontend/index404.html");
 })
 
 app.listen(port, () => {

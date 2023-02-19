@@ -1,32 +1,38 @@
 import express from "express";
+import path from "path";
 
 const port = 3000
 const app = express();
-const fs = require('fs');
 
 app.use(express.urlencoded());
+app.use(express.json())
 
 let name = "Benedikt"
 
-app.get('/hello', (req, res) => {
-    res.send(fs.readFileSync("src/frontend/index.html").toString().replace("*", name));
-    res.end()
+app.use(express.static(path.join(__dirname, "/frontend")));
+
+app.get("/hello", (req, res) => {
+    res.sendFile(path.join(__dirname, "/frontend/index.html"));
 })
 
-app.get('/goodbye', (req, res) => {
+app.get("/getName", (req, res) => {
+    res.json({name:name});
+})
+
+app.get("/goodbye", (req, res) => {
     name = "Benedikt"
 
     res.redirect("/hello");
 })
 
-app.post('/hello', (req, res) => {
-    name = req.body.greeting;
+app.post("/hello", (req, res) => {
+    name = req.body.name;
 
-    res.redirect("/hello");
+    res.end();
 })
 
-app.get('/*', (req, res) => {
-    res.sendFile(__dirname + "/frontend/index404.html");
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/frontend/index404.html"));
 })
 
 app.listen(port, () => {

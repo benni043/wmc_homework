@@ -6,27 +6,28 @@ function write(name) {
 }
 
 async function getName() {
-    let response = await fetch("http://localhost:3000/hello");
-
-    console.log(response)
-
+    let response = await fetch("http://localhost:3000/getName");
     let json = await response.json();
 
-    let name = json.name;
-
-    write(name);
+    write(json.name);
 }
 
 async function sendName() {
-    let name = document.getElementById("greeting").innerText;
+    let name = document.getElementById("greeting").value;
+    let json = {name: name};
 
     await fetch("http://localhost:3000/hello", {
         headers: {
             "Content-Type": "application/json"
         },
         method: "POST",
-        body: JSON.stringify({name: name})
+        body: JSON.stringify(json)
     })
+
+    return false;
 }
 
-getName().then(r => r);
+getName().then();
+setInterval(() => {
+    getName().then();
+}, 1000)

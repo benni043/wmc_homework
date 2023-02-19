@@ -1,0 +1,46 @@
+###
+GET localhost:7000/api/product/
+
+###
+POST localhost:7000/api/product
+Content-Type: application/json
+
+{
+  "name": "price",
+  "price": 123
+}
+
+###
+POST localhost:7000/api/product
+Content-Type: application/json
+
+{
+  "name": "price",
+  "price": -3
+}
+
+###
+POST localhost:7000/api/product/bulk
+Content-Type: application/json
+
+[
+  {
+    "name": "price1",
+    "price": 1
+  },
+  {
+    "name": "price2",
+    "price": 2
+  },
+  {
+    "name": "price3",
+    "price": 3
+  },
+  {
+    "name": "wrong",
+    "price": -1
+  }
+]
+
+###
+GET localhost:7000/api/product/6

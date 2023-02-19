@@ -8,14 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post" action="/hello">
+<div>
     <label for="greeting">Name: </label>
     <input type="text" name="greeting" id="greeting">
 
-    <button type="submit">Senden</button>
-</form>
+    <button type="submit" onclick="sendName()">Senden</button>
+</div>
 
-<div>Hallo, *</div>
+<span>Hallo, </span>
+<span id="name"></span>
+
+<script src="index.js"></script>
 
 </body>
 </html>

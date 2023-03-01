@@ -44,3 +44,16 @@ Content-Type: application/json
 
 ###
 GET localhost:7000/api/product/6
+
+###
+DELETE localhost:7000/api/product/3
+Content-Type: application/json
+
+###
+PATCH localhost:7000/api/product/2
+Content-Type: application/json
+
+{
+  "name": "priceNew",
+  "price": 123000
+}

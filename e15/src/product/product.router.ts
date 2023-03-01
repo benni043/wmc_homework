@@ -1,5 +1,5 @@
 import {ProductService} from "./product.service";
-import {Bulk, Product} from "./product";
+import {Product} from "./product";
 import {Router} from "express";
 
 export class ProductRouter {
@@ -17,12 +17,9 @@ export class ProductRouter {
 
         this.router.get("/:sid", (req, res) => {
             const sid: number = parseInt(req.params.sid, 10);
-
             const product: Product = this.productService.find(sid);
 
-            if (product) {
-                return res.status(200).send(product);
-            }
+            if (product) return res.status(200).send(product);
 
             res.status(404).send("item not found");
         });
@@ -63,11 +60,26 @@ export class ProductRouter {
             res.status(201).json(bulk);
         })
 
-        this.router.post("/delete", (req, res) => {
+        this.router.delete("/:sid", (req, res) => {
+            let bool = this.productService.delete(parseInt(req.params.sid));
 
+            if (bool) res.status(200).send("deleted successful");
+            else res.status(400).send("product does not exist")
+
+            res.end()
         })
 
-        /** Add new Sub-Routes for Main-Route 'api/product' here (i.e. delete, update, search) */
+        this.router.patch("/:sid", (req, res) => {
+            const newProduct: Product = req.body;
+
+            let bool = this.productService.change(parseInt(req.params.sid), newProduct);
+
+            if (bool) res.status(200).send("changed successful");
+            else res.status(400).send("product does not exist")
+
+            res.end()
+        })
+
     }
 
     public get router(): Router {

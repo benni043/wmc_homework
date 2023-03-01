@@ -17,19 +17,17 @@ export class ProductService {
     }
 
     public create(product: Product): Product {
-        product.id = this.productStore.findAll().length + 1;
         this.productStore.put(product);
 
         return product;
     }
 
-    /** add new application logic here */
-
-    public delete(productId: number): void {
-        this.findAll()
+    public delete(id: number): boolean {
+        return this.productStore.delete(id);
     }
 
-    public change(product: Product): void {
-
+    public change(id: number, newProduct: Product): boolean {
+        return this.productStore.change(id, newProduct);
     }
+
 }

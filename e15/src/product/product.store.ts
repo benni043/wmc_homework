@@ -16,6 +16,7 @@ const defaultValues: Product[] = [
 /** Only for testing; real application would use a DB instead of this store object */
 export class ProductStore {
     private readonly productIndex: { [id: number]: Product } = {}
+    private index: number = 0;
 
     constructor() {
         this.initWithDefaultValues();
@@ -23,7 +24,7 @@ export class ProductStore {
 
     private initWithDefaultValues() {
         defaultValues.forEach(defaultValue => {
-            this.productIndex[defaultValue.id] = defaultValue;
+            this.put(defaultValue)
         });
     }
 
@@ -36,6 +37,29 @@ export class ProductStore {
     }
 
     public put(product: Product) {
+        product.id = this.index;
+        this.index++;
+
         this.productIndex[product.id] = product;
+    }
+
+    public delete(id: number): boolean {
+        if (this.productIndex[id] === undefined) {
+            return false;
+        }
+
+        delete this.productIndex[id];
+        return true;
+    }
+
+    public change(id: number, newProduct: Product): boolean {
+        if (this.productIndex[id] === undefined) {
+            return false;
+        }
+
+        this.productIndex[id].name = newProduct.name;
+        this.productIndex[id].price = newProduct.price;
+
+        return true;
     }
 }

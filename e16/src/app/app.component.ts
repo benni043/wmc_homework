@@ -21,12 +21,8 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.allFilm().subscribe((res) => {
-      this.films = res["results"];
+      this.films = res.results;
     })
-  }
-
-  moreInfo(): void {
-
   }
 
 }

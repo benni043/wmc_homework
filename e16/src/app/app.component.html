@@ -1,0 +1,10 @@
+<div *ngFor="let film of films">
+  <app-film
+    [titel]="film.titel"
+    [episode]="film.episode_id"
+    [director]="film.director"
+    [producer]="film.producer"
+    [releaseDate]="film.release_date">
+
+  </app-film>
+</div>

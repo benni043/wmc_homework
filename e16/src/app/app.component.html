@@ -1,10 +1,38 @@
-<div *ngFor="let film of films">
-  <app-film
-    [titel]="film.titel"
-    [episode]="film.episode_id"
-    [director]="film.director"
-    [producer]="film.producer"
-    [releaseDate]="film.release_date">
+<div>
+    <div class="film">
+        <app-film *ngFor="let film of starWarsService.films"
+                  [titel]="film.title"
+                  [episode]="film.episode_id"
+                  [director]="film.director"
+                  [producer]="film.producer"
+                  [releaseDate]="film.release_date"
+                  [actors]="film.characters"
+                  (actorsEvent)="fillActorArray($event)">
+        </app-film>
+    </div>
 
-  </app-film>
+    <div *ngIf="showWhichEpisode !== -1">
+        <div id="flex">
+            <button (click)="showWhichEpisode = -1">END</button>
+        </div>
+        <div class="crawl">
+            <app-opening-crawl
+                    [title]="starWarsService.getFilmByEpisode(showWhichEpisode).title"
+                    [episode]="starWarsService.getFilmByEpisode(showWhichEpisode).episode_id"
+                    [crawl]="starWarsService.getFilmByEpisode(showWhichEpisode).opening_crawl">
+            </app-opening-crawl>
+        </div>
+        <div class="actors">
+            <app-person *ngFor="let actor of starWarsService.actors"
+                        [name]="actor.name"
+                        [height]="actor.height"
+                        [mass]="actor.mass"
+                        [hairColor]="actor.hair_color"
+                        [skinColor]="actor.skin_color"
+                        [eyeColor]="actor.eye_color"
+                        [birthYear]="actor.birth_year">
+            </app-person>
+        </div>
+    </div>
 </div>
+

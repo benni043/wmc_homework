@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-person',
@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class PersonComponent {
 
-  name: string = "";
-  height: number = 0;
-  mass: number = 0;
-  hairColor: string = "";
-  skinColor: string = "";
-  eyeColor: string = "";
-  birthYear: Date = new Date();
+  @Input() name: string = "";
+  @Input() height: number = 0;
+  @Input() mass: number = 0;
+  @Input() hairColor: string = "";
+  @Input() skinColor: string = "";
+  @Input() eyeColor: string = "";
+  @Input() birthYear: string = "";
 
 }

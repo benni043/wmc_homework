@@ -1,3 +1,20 @@
-<div *ngFor="let line of lines">
-  <span>{{line}}</span>
+<div id="main">
+    <div class="intro">
+        A long time ago, in a galaxy far,<br> far away....
+    </div>
+
+    <div class="logo">
+        <img src="assets/logo.png" alt="starWars">
+    </div>
+
+    <div id="scroller">
+        <div id="content">
+            <p id="title">Episode {{episode}}</p>
+            <p id="subtitle">{{title}}</p>
+            <div *ngFor="let t of splitTitle">
+                <p id="subsubtitle">{{t}}</p>
+                <p></p>
+            </div>
+        </div>
+    </div>
 </div>

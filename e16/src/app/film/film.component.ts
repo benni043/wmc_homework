@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-film',
@@ -12,5 +12,13 @@ export class FilmComponent {
   @Input() director: string = "";
   @Input() producer: string = "";
   @Input() releaseDate: string = "";
+
+  @Input() actors: string[] = []
+
+  @Output() actorsEvent: EventEmitter<{actors: string[], episode: number}> = new EventEmitter<{actors: string[], episode: number}>();
+
+  emitActors() {
+    this.actorsEvent.emit({actors: this.actors, episode: this.episode});
+  }
 
 }

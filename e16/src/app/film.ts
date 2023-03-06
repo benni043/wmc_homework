@@ -8,6 +8,10 @@ export interface Film {
   characters: string[]
 }
 
+export interface Person {
+  name: string
+}
+
 export interface Actor {
   name: string,
   height: number,

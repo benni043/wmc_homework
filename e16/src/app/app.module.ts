@@ -6,15 +6,13 @@ import { FilmComponent } from './film/film.component';
 import { PersonComponent } from './person/person.component';
 import { OpeningCrawlComponent } from './opening-crawl/opening-crawl.component';
 import {HttpClientModule} from "@angular/common/http";
-import { ServiceComponent } from './service/service.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmComponent,
     PersonComponent,
-    OpeningCrawlComponent,
-    ServiceComponent
+    OpeningCrawlComponent
   ],
   imports: [
     HttpClientModule,

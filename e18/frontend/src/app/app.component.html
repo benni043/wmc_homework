@@ -1,0 +1,7 @@
+<div>
+  <app-create-product (pushProduct)="pushProduct($event)"></app-create-product>
+</div>
+
+<div *ngFor="let product of products">
+  <app-product (deleteProduct)="delete($event)" [id]="product.id" [price]="product.price" [name]="product.name"></app-product>
+</div>

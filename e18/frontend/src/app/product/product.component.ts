@@ -8,12 +8,10 @@ import {Product} from "../product";
 })
 export class ProductComponent {
 
-  @Input() price: number = 0;
-  @Input() name: string = "";
-  @Input() id: number = 0;
+  @Input() product: Product | undefined;
 
   delete() {
-    this.deleteProduct.emit({id: this.id, name: this.name, price: this.price} as Product);
+    this.deleteProduct.emit(this.product);
   }
 
   @Output() deleteProduct: EventEmitter<Product> = new EventEmitter<Product>();

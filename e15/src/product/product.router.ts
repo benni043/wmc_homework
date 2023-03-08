@@ -63,8 +63,8 @@ export class ProductRouter {
         this.router.delete("/:sid", (req, res) => {
             let bool = this.productService.delete(parseInt(req.params.sid));
 
-            if (bool) res.status(200).send("deleted successful");
-            else res.status(400).send("product does not exist")
+            if (bool) res.status(200);
+            else res.status(400);
 
             res.end()
         })
@@ -74,8 +74,8 @@ export class ProductRouter {
 
             let bool = this.productService.change(parseInt(req.params.sid), newProduct);
 
-            if (bool) res.status(200).send("changed successful");
-            else res.status(400).send("product does not exist")
+            if (bool) res.status(200);
+            else res.status(400);
 
             res.end()
         })

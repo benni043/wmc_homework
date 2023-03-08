@@ -1,6 +1,6 @@
 <div>
-  <div>ID: {{id}}</div>
-  <div>Name: {{name}}</div>
-  <div>Price: {{price}}</div>
+  <div>ID: {{product!.id}}</div>
+  <div>Name: {{product!.name}}</div>
+  <div>Price: {{product!.price}}</div>
   <button (click)="delete()">DELETE</button>
 </div>

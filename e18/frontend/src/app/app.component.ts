@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
 import {Product} from "./product";
 
 @Component({
@@ -16,13 +15,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllProducts().subscribe(res => {
+    this.httpClient.get<Product[]>("http://localhost:7000/api/product/").subscribe(res => {
       this.products = res;
     })
-  }
-
-  getAllProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>("http://localhost:7000/api/product/");
   }
 
   pushProduct($event: Product) {
@@ -31,7 +26,19 @@ export class AppComponent implements OnInit {
 
   delete(product: Product) {
     this.products.splice(this.products.indexOf(product), 1);
-    this.httpClient.delete("http://localhost:7000/api/product/" + product.id, {responseType: "text"}).subscribe();
+    this.httpClient.delete("http://localhost:7000/api/product/" + product.id).subscribe();
   }
 
+  changeProduct($event: Product) {
+    this.httpClient.patch<Product>("http://localhost:7000/api/product/" + $event.id, $event).subscribe()
+    this.products[this.getProductIndexWithID($event.id)].name = $event.name;
+    this.products[this.getProductIndexWithID($event.id)].price = $event.price;
+  }
+
+  getProductIndexWithID(id: number): number {
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].id == id) return i;
+    }
+    throw new Error();
+  }
 }

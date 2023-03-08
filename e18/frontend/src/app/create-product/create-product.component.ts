@@ -21,7 +21,6 @@ export class CreateProductComponent {
       .subscribe(res => {
         this.pushProduct.emit(res);
       })
-
   }
 
   @Output() pushProduct: EventEmitter<Product> = new EventEmitter<Product>();

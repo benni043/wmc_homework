@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Product} from "../product";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-create-product',
@@ -18,8 +17,20 @@ export class CreateProductComponent {
 
   create() {
     this.httpClient.post<Product>("http://localhost:7000/api/product", {name: this.name, price: this.price} as Product)
-      .subscribe(res => {
-        this.pushProduct.emit(res);
+      .subscribe({
+        next: res => {
+          this.pushProduct.emit(res);
+        },
+        error: err => {
+          switch (err.status) {
+            case 400: {
+              alert("negative price or empty name");
+              break;
+            }
+            default:
+              alert("something went wrong");
+          }
+        }
       })
   }
 

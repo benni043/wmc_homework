@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Product} from "../product";
 
 @Component({
@@ -18,4 +18,5 @@ export class ChangeProductComponent {
 
   @Output() changeProduct: EventEmitter<Product> = new EventEmitter<Product>();
 
+  @Input() availableProducts: Product[] = [];
 }

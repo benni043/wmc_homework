@@ -1,0 +1,14 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35px;
+}
+
+.flex * {
+  width: 300px;
+  margin: 1px;
+}
+
+button {
+  width: 80px!important;
+}

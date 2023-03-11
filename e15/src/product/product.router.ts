@@ -28,9 +28,11 @@ export class ProductRouter {
             const product: Product = req.body;
 
             if(product === undefined || product.price < 0) {
-                res.status(400).send("price negative or product null");
+                res.status(400);
+                res.end();
                 return;
             }
+            console.log(3)
 
             const newProduct = this.productService.create(product);
             res.status(201).json(newProduct);

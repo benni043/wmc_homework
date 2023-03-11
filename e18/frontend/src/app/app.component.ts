@@ -30,9 +30,25 @@ export class AppComponent implements OnInit {
   }
 
   changeProduct($event: Product) {
-    this.httpClient.patch<Product>("http://localhost:7000/api/product/" + $event.id, $event).subscribe()
-    this.products[this.getProductIndexWithID($event.id)].name = $event.name;
-    this.products[this.getProductIndexWithID($event.id)].price = $event.price;
+    this.httpClient.patch<Product>("http://localhost:7000/api/product/" + $event.id, $event)
+      .subscribe({
+        next: () => {
+          this.products[this.getProductIndexWithID($event.id)].name = $event.name;
+          this.products[this.getProductIndexWithID($event.id)].price = $event.price;
+        },
+        error: err => {
+          switch (err.status) {
+            case 400: {
+              alert("negative price or empty name");
+              break;
+            }
+            default: {
+              alert("something went wrong");
+              break
+            }
+          }
+        }
+      })
   }
 
   getProductIndexWithID(id: number): number {

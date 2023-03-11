@@ -1,8 +1,0 @@
-<div>
-  <input type="text" name="name" id="name" [(ngModel)]="name" placeholder="newProductName">
-  <input type="number" name="price" id="price" [(ngModel)]="price" placeholder="newProductPrice">
-  <select [(ngModel)]="id">
-    <option *ngFor="let product of availableProducts">{{product.id}}</option>
-  </select>
-  <button (click)="change()">CHANGE</button>
-</div>

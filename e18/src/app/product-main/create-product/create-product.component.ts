@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Product} from "../product";
+import {Product} from "../../product";
 
 @Component({
   selector: 'app-create-product',

@@ -8,6 +8,7 @@ import express, {Express} from "express";
 import cors from "cors";
 import helmet from "helmet";
 import {ProductRouter} from "./product/product.router";
+import {StudentRouter} from "./student/student.router";
 
 dotenv.config();
 if (!process.env.PORT) {
@@ -61,6 +62,7 @@ class Application {
         /** Add new Main-Routes here (i.e. 'api/blog', 'api/student', 'ws/message', ...) */
 
         this.express.use("/api/product", new ProductRouter().router);
+        this.express.use("/api/student", new StudentRouter().router);
     }
 
     public run() {

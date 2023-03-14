@@ -4,6 +4,13 @@ export interface Product {
     price:number;
 }
 
+export interface Student {
+  firstName: string,
+  lastName: string,
+  age: number,
+  id: number
+}
+
 export interface Bulk {
     countOfRightProducts: number,
     products: Product[]

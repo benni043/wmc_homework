@@ -1,0 +1,15 @@
+<h2>Create new student</h2>
+<div class="flex">
+  <app-create-student (pushStudent)="pushStudent($event)"></app-create-student>
+</div>
+
+<h2>Change student</h2>
+<div class="flex">
+  <app-change-student (changeStudent)="changeStudent($event)" [availableStudents]="students"></app-change-student>
+</div>
+
+<br>
+<div class="flex" *ngFor="let product of students">
+  <app-student (deleteStudent)="delete($event)" [student]="product"></app-student>
+</div>
+

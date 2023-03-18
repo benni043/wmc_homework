@@ -1,0 +1,9 @@
+<div>
+  <input type="text" name="name" id="firstName" [(ngModel)]="firstName" placeholder="newFirstName">
+  <input type="text" name="price" id="lastName" [(ngModel)]="lastName" placeholder="newLastName">
+  <input type="number" name="price" id="age" [(ngModel)]="age" placeholder="age">
+  <select [(ngModel)]="id">
+    <option *ngFor="let student of availableStudents">{{student.id}}</option>
+  </select>
+  <button (click)="change()">CHANGE</button>
+</div>

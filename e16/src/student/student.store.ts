@@ -1,34 +1,40 @@
 import {Student} from "./student";
 
 export class StudentStore {
-    private readonly studentIndex: { [id: number]: Student } = {}
+    private students: Student[] = [];
     private index: number = 0;
 
+
     public findAll(): Student[] {
-        return Object.values(this.studentIndex);
+        return this.students;
     }
 
     public put(student: Student) {
         student.id = this.index;
         this.index++;
 
-        this.studentIndex[student.id] = student;
+        this.students.push(student);
     }
 
     public delete(id: number): boolean {
-        if (this.studentIndex[id] === undefined) return false
+        const index = this.students.findIndex(student => student.id === id);
 
-        delete this.studentIndex[id];
-        return true;
+        if (index !== -1) {
+            this.students.splice(index, 1);
+            return true;
+        }
+        return false;
     }
 
     public change(id: number, newStudent: Student): boolean {
-        if (this.studentIndex[id] === undefined) return false;
+        const index = this.students.findIndex(student => student.id === id);
 
-        this.studentIndex[id].firstName = newStudent.firstName;
-        this.studentIndex[id].lastName = newStudent.lastName;
-        this.studentIndex[id].age = newStudent.age;
-
-        return true;
+        if (index !== -1) {
+            this.students[index].firstName = newStudent.firstName;
+            this.students[index].lastName = newStudent.lastName;
+            this.students[index].age = newStudent.age;
+            return true;
+        }
+        return false;
     }
 }

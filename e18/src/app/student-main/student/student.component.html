@@ -1,7 +1,19 @@
-<div class="flex">
-  <div>ID: {{student!.id}}</div>
-  <div>FN: {{student!.firstName}}</div>
-  <div>LN: {{student!.lastName}}</div>
-  <div>AGE: {{student!.age}}</div>
+<div id="outer">
+  <div class="inner">
+    <div id="id">ID: {{student!.id}}</div>
+  </div>
+  <div class="inner">
+    <span>Firstname: </span>
+    <input (change)="change()" type="text" name="firstname" id="firstname" [(ngModel)]="student!.firstName">
+  </div>
+  <div class="inner">
+    <span>Lastname: </span>
+    <input (change)="change()" type="text" name="lastname" id="lastname" [(ngModel)]="student!.lastName">
+  </div>
+  <div class="inner">
+    <span>Age: </span>
+    <input (change)="change()" type="text" name="age" id="age" [(ngModel)]="student!.age">
+  </div>
+
   <button (click)="delete()">DELETE</button>
 </div>

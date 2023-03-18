@@ -57,3 +57,6 @@ Content-Type: application/json
   "name": "priceNew",
   "price": 123000
 }
+
+###
+GET localhost:7000/api/student/

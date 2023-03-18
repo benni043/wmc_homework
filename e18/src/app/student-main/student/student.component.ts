@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Product, Student} from "../../product";
+import {Student} from "../../product";
 
 @Component({
   selector: 'app-student',
@@ -15,4 +15,16 @@ export class StudentComponent {
   }
 
   @Output() deleteStudent: EventEmitter<Student> = new EventEmitter<Student>();
+
+  change() {
+    this.changeStudent.emit({
+      firstName: this.student?.firstName,
+      lastName: this.student?.lastName,
+      age: this.student?.age,
+      id: this.student?.id
+    } as Student)
+  }
+
+  @Output() changeStudent: EventEmitter<Student> = new EventEmitter<Student>();
+
 }

@@ -13,7 +13,7 @@ export class StudentService {
     }
 
     public create(student: Student): Student {
-        if (student.age < 0 || student.firstName === "" || student.lastName === "") throw new Error("invalid");
+        if (student.age < 0 || student.firstName === "" || student.lastName === "") throw new Error("invalid student");
 
         this.studentStore.put(student);
         return student;
@@ -22,12 +22,14 @@ export class StudentService {
     public delete(id: number) {
         let status = this.studentStore.delete(id);
 
-        if(!status) throw new Error("invalid");
+        if(!status) throw new Error("could not delete student because id does not exist");
     }
 
     public change(id: number, newStudent: Student) {
-        if (newStudent.age < 0 || newStudent.firstName === "" || newStudent.lastName === "") throw new Error("invalid");
+        if (newStudent.age < 0 || newStudent.firstName === "" || newStudent.lastName === "") throw new Error("invalid student");
 
-        return this.studentStore.change(id, newStudent);
+        let status = this.studentStore.change(id, newStudent);
+
+        if(!status) throw new Error("could not change student because id does not exist");
     }
 }

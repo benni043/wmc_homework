@@ -1,11 +1,9 @@
 <div id="center">
   <h2>Create new student</h2>
-  <app-create-student (pushStudent)="pushStudent($event)"></app-create-student>
+  <app-create-student></app-create-student>
 </div>
 
 <br>
-<div *ngFor="let product of students">
-  <app-student (deleteStudent)="delete($event)" (changeStudent)="changeStudent($event)"
-               [student]="product"></app-student>
+<div *ngFor="let student of studentService.students">
+  <app-student [student]="student"></app-student>
 </div>
-

@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Student} from "../../product";
+import {StudentServiceService} from "../student-service.service";
 
 @Component({
   selector: 'app-student',
@@ -8,23 +9,22 @@ import {Student} from "../../product";
 })
 export class StudentComponent {
 
+  constructor(public studentService: StudentServiceService) {
+  }
+
   @Input() student: Student | undefined;
 
   delete() {
-    this.deleteStudent.emit(this.student);
+    this.studentService.delete(this.student!);
   }
 
-  @Output() deleteStudent: EventEmitter<Student> = new EventEmitter<Student>();
-
   change() {
-    this.changeStudent.emit({
+    this.studentService.changeStudent({
       firstName: this.student?.firstName,
       lastName: this.student?.lastName,
       age: this.student?.age,
       id: this.student?.id
     } as Student)
   }
-
-  @Output() changeStudent: EventEmitter<Student> = new EventEmitter<Student>();
 
 }

@@ -1,22 +1,21 @@
-import {Student} from "./student";
+import {Student, StudentStore} from "./student";
 
-export class StudentStore {
+export class InMemoryStudentStore implements StudentStore{
     private students: Student[] = [];
     private index: number = 0;
 
-
-    public findAll(): Student[] {
+    public async findAll(): Promise<Student[]> {
         return this.students;
     }
 
-    public put(student: Student) {
+    public async put(student: Student): Promise<void> {
         student.id = this.index;
         this.index++;
 
         this.students.push(student);
     }
 
-    public delete(id: number): boolean {
+    public async delete(id: number): Promise<boolean> {
         const index = this.students.findIndex(student => student.id === id);
 
         if (index !== -1) {
@@ -26,7 +25,7 @@ export class StudentStore {
         return false;
     }
 
-    public change(id: number, newStudent: Student): boolean {
+    public async change(id: number, newStudent: Student): Promise<boolean> {
         const index = this.students.findIndex(student => student.id === id);
 
         if (index !== -1) {

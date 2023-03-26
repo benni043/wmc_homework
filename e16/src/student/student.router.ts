@@ -9,16 +9,16 @@ export class StudentRouter {
         this.studentService = new StudentService();
         this._router = Router();
 
-        this.router.get("/", (req, res) => {
-            res.send(this.studentService.findAll()).status(200);
+        this.router.get("/", async (req, res) => {
+            res.send(await this.studentService.findAll()).status(200);
             res.end();
         });
 
-        this.router.post("/", (req, res) => {
+        this.router.post("/", async (req, res) => {
             let student = req.body;
 
             try {
-                let createdStudent = this.studentService.create(student);
+                let createdStudent = await this.studentService.create(student);
                 res.send(createdStudent).status(200);
             } catch {
                 res.status(400);
@@ -27,11 +27,11 @@ export class StudentRouter {
             res.end();
         });
 
-        this.router.delete("/:sid", (req, res) => {
+        this.router.delete("/:sid", async (req, res) => {
             let idToDelete = parseInt(req.params.sid);
 
             try {
-                this.studentService.delete(idToDelete);
+                await this.studentService.delete(idToDelete);
                 res.status(200);
             } catch {
                 res.status(400);
@@ -40,12 +40,12 @@ export class StudentRouter {
             res.end();
         });
 
-        this.router.put("/:sid", (req, res) => {
+        this.router.put("/:sid", async (req, res) => {
             let idToDelete = parseInt(req.params.sid);
             let newStudent = req.body;
 
             try {
-                this.studentService.change(idToDelete, newStudent);
+                await this.studentService.change(idToDelete, newStudent);
                 res.status(200);
             } catch {
                 res.status(400);

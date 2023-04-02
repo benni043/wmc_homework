@@ -9,6 +9,7 @@ import cors from "cors";
 import helmet from "helmet";
 import {ProductRouter} from "./product/product.router";
 import {StudentRouter} from "./student/student.router";
+import {DBPool} from "./student/dbPool";
 
 dotenv.config();
 if (!process.env.PORT) {
@@ -68,9 +69,11 @@ class Application {
     public run() {
         /** change port in .env-file, not here! */
 
-        this.express.listen(PORT, () => {
-            console.log(`Listening on port ${PORT}`);
-        });
+        DBPool.connect().then(() => {
+            this.express.listen(PORT, function () {
+                console.log(`Listening on port ${PORT}`);
+            })
+        })
     }
 }
 

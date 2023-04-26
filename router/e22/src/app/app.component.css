@@ -1,0 +1,41 @@
+nav a.active {
+  border-bottom: 2px solid black;
+}
+
+#flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  border: 3px solid black;
+  border-radius: 50px;
+  width: min-content;
+  margin: auto;
+}
+
+a {
+  margin: 20px;
+  padding: 5px;
+  font-family: "Arial Black", serif;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+div {
+  margin: 25px;
+}
+
+nav a:not(.active)::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width .3s;
+}
+
+nav a:not(.active):hover::after {
+  width: 100%;
+  transition: width .3s;
+}

@@ -1,0 +1,7 @@
+p {
+  display: flex;
+  justify-content: center;
+  font-family: "Arial Black", serif;
+  font-size: 16px;
+  color: black;
+}

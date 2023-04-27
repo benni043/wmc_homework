@@ -8,7 +8,7 @@ export class InMemoryStudentStore implements StudentStore{
         return this.students;
     }
 
-    public async put(student: Student): Promise<void> {
+    public async create(student: Student): Promise<void> {
         student.id = this.index;
         this.index++;
 

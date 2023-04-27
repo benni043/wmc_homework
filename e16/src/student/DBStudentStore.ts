@@ -1,6 +1,6 @@
 import {Student, StudentStore} from "./student";
 import {DBPool} from "./dbPool";
-import {Int, Money, VarChar} from "mssql";
+import {Int, VarChar} from "mssql";
 
 export class DBStudentStore implements StudentStore {
 
@@ -18,7 +18,7 @@ export class DBStudentStore implements StudentStore {
             return true;
         } catch (e) {
             console.log(e);
-            throw new Error("failed to update the student with id=" + newStudent.id);
+            return false;
         }
     }
 
@@ -31,7 +31,7 @@ export class DBStudentStore implements StudentStore {
             return true;
         } catch (e) {
             console.log(e);
-            throw new Error("failed to delete the student with id=" + id);
+            return false;
         }
     }
 
@@ -40,7 +40,7 @@ export class DBStudentStore implements StudentStore {
             let result1 = await this.connectionPool
                 .request()
                 .input('input_parameter', Int)
-                .query<Student>('select id, firstname, lastname, age from student')
+                .query<Student>('select id, firstname, lastname, age from student WHERE recordState <> 2')
             return result1.recordset;
         } catch (e) {
             console.log(e);
@@ -48,15 +48,14 @@ export class DBStudentStore implements StudentStore {
         }
     }
 
-    async put(student: Student): Promise<void> {
+    async create(student: Student): Promise<void> {
         try {
-            let result = await this.connectionPool
+            await this.connectionPool
                 .request()
                 .input('firstname', VarChar, student.firstName)
                 .input('lastname', Int, student.lastName)
                 .input('age', Int, student.age)
-                .query('INSERT INTO STUDENT (firstname, lastname, AGE) VALUES (@firstname, @lastname, @age); SELECT SCOPE_IDENTITY() AS id');
-            return result.recordset[0].id;
+                .query('INSERT INTO STUDENT (firstname, lastname, AGE) VALUES (@firstname, @lastname, @age);');
         } catch (e) {
             console.log(e);
             throw new Error("failed to insert the product with");

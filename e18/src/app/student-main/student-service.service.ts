@@ -6,6 +6,7 @@ import {Student} from "../product";
   providedIn: 'root'
 })
 export class StudentServiceService {
+
   constructor(private httpClient: HttpClient) {
     this.httpClient.get<Student[]>("http://localhost:7000/api/student/").subscribe(res => {
       this.students = res;

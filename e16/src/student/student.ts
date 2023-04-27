@@ -7,8 +7,7 @@ export interface Student {
 
 export interface StudentStore {
     findAll(): Promise<Student[]>,
-    put(student: Student): Promise<void>,
+    create(student: Student): Promise<void>,
     delete(id: number): Promise<boolean>,
     change(id: number, newStudent: Student): Promise<boolean>
-
 }

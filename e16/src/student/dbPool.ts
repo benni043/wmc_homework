@@ -2,9 +2,10 @@ import {ConnectionPool} from 'mssql';
 
 export class DBPool{
     private static  readonly config = {
-        user: 'sa',
-        password: '1_2_yourStrongPassword',
-        server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
+        user: 'benni043',
+        password: 'benni043',
+        server: '185.194.142.160', // You can use 'localhost\\instance' to connect to named instance
+        port: 3306,
         database: 'wmc',
         pool: {
             max: 10,

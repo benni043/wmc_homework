@@ -1,11 +1,11 @@
-import {Student} from "./student";
-import {InMemoryStudentStore} from "./inMemoryStudent.store";
+import {Student, StudentStore} from "./student";
+import {DBStudentStore} from "./DBStudentStore";
 
 export class StudentService {
-    private studentStore: InMemoryStudentStore;
+    private studentStore: StudentStore;
 
     constructor() {
-        this.studentStore = new InMemoryStudentStore();
+        this.studentStore = new DBStudentStore();
     }
 
     public async findAll(): Promise<Student[]> {
@@ -15,12 +15,12 @@ export class StudentService {
     public async create(student: Student): Promise<Student> {
         if (student.age < 0 || student.firstName === "" || student.lastName === "") throw new Error("invalid student");
 
-        await this.studentStore.put(student);
+        await this.studentStore.create(student);
         return student;
     }
 
     public async delete(id: number): Promise<void> {
-        let status = this.studentStore.delete(id);
+        let status = await this.studentStore.delete(id);
 
         if(!status) throw new Error("could not delete student because id does not exist");
     }
@@ -28,7 +28,7 @@ export class StudentService {
     public async change(id: number, newStudent: Student): Promise<void> {
         if (newStudent.age < 0 || newStudent.firstName === "" || newStudent.lastName === "") throw new Error("invalid student");
 
-        let status = this.studentStore.change(id, newStudent);
+        let status = await this.studentStore.change(id, newStudent);
 
         if(!status) throw new Error("could not change student because id does not exist");
     }

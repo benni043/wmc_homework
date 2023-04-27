@@ -10,7 +10,7 @@ export class StudentRouter {
         this._router = Router();
 
         this.router.get("/", async (req, res) => {
-            res.send(await this.studentService.findAll()).status(200);
+            await res.send(await this.studentService.findAll()).status(200).json("ok");
             res.end();
         });
 
@@ -19,9 +19,9 @@ export class StudentRouter {
 
             try {
                 let createdStudent = await this.studentService.create(student);
-                res.send(createdStudent).status(200);
+                await res.send(createdStudent).status(200);
             } catch {
-                res.status(400);
+                await res.status(400).json("error");
             }
 
             res.end();
@@ -32,9 +32,9 @@ export class StudentRouter {
 
             try {
                 await this.studentService.delete(idToDelete);
-                res.status(200);
+                await res.status(200).json("ok");
             } catch {
-                res.status(400);
+                await res.status(400).json("error");
             }
 
             res.end();
@@ -46,9 +46,9 @@ export class StudentRouter {
 
             try {
                 await this.studentService.change(idToDelete, newStudent);
-                res.status(200);
+                await res.status(200).json("ok");
             } catch {
-                res.status(400);
+                await res.status(400).json("error");
             }
 
             res.end();

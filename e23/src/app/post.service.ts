@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Post} from "./postType";
+import {Comment, Post} from "./postType";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -7,11 +7,18 @@ import {HttpClient} from "@angular/common/http";
 })
 export class PostService {
 
-  posts: Post[] = []
+  posts: Post[] = [];
+  comments: Comment[] = [];
 
   constructor(private httpClient: HttpClient) {
     this.httpClient.get<Post[]>("https://jsonplaceholder.typicode.com/posts/").subscribe((posts) => {
       this.posts = posts;
+    })
+  }
+
+  getComments(id: number) {
+    this.httpClient.get<Comment[]>("https://jsonplaceholder.typicode.com/posts/" + id + "/comments").subscribe((comments) => {
+      this.comments = comments;
     })
   }
 
@@ -21,4 +28,6 @@ export class PostService {
     }
     throw new Error;
   }
+
+
 }

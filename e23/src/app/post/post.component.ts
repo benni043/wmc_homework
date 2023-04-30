@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../post.service";
-import {Post} from "../postType";
 
 @Component({
   selector: 'app-post',
@@ -10,14 +9,13 @@ import {Post} from "../postType";
 })
 export class PostComponent {
 
-  post: Post | undefined;
+  id: number = -1;
 
   constructor(private route: ActivatedRoute, public postService: PostService) {
     this.route.params.subscribe(params => {
-      const id = Number(params['id']);
-      this.post = this.postService.getById(id);
+      this.id = Number(params['id']);
+      this.postService.getComments(this.id);
     })
   }
-
 
 }

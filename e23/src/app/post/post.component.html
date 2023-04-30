@@ -1,5 +1,23 @@
-<div *ngIf="post != undefined">
-  <div>id: {{post.id}}</div>
-  <div>userId: {{post.userId}}</div>
-  <div>body: {{post.body}}</div>
+<div *ngIf="postService.posts.length != 0">
+  <div>id: {{postService.getById(id).id}}</div>
+  <div>userId: {{postService.getById(id).userId}}</div>
+  <div>body: {{postService.getById(id).body}}</div>
+</div>
+
+<br>
+<br>
+
+<div *ngIf="postService.comments.length != 0">
+  <div *ngFor="let comment of postService.comments">
+    <div>postId: {{comment.postId}}</div>
+    <div>id: {{comment.id}}</div>
+    <div>name: {{comment.name}}</div>
+    <div>email: {{comment.email}}</div>
+    <div>body: {{comment.body}}</div>
+    <br>
+  </div>
+</div>
+
+<div>
+  <button><a routerLink="/posts">Back</a></button>
 </div>

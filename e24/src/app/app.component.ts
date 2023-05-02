@@ -11,4 +11,8 @@ export class AppComponent {
   releaseYear: number = 0;
   country: string = "";
   genre: string = "";
+
+  getCurrentYear(): number {
+    return new Date().getFullYear();
+  }
 }

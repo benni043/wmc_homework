@@ -1,59 +1,63 @@
 <form #filmForm="ngForm">
+  <h1>Filme</h1>
+
   <div class="field">
     <div>
-      <label for="title">Titel</label>
+      <label for="title">Titel:</label>
       <input type="text" name="title" id="title" [(ngModel)]="title" #title2="ngModel" minlength="10" maxlength="50" class="form-control">
     </div>
-    <div class="error" *ngIf="title2.hasError('minlength')">
+    <div class="alert alert-danger" *ngIf="title2.hasError('minlength')">
       <span>Der Titel muss mindestens {{title2.getError("minlength").requiredLength}} Zeichen lang sein!</span>
     </div>
   </div>
   <div class="field">
     <div>
-      <label for="description">Beschreibung</label>
+      <label for="description">Beschreibung:</label>
       <input type="text" name="description" id="description" [(ngModel)]="description" #description2="ngModel" required class="form-control">
     </div>
-    <div class="error" *ngIf="description2.hasError('required')">
+    <div class="alert alert-danger" *ngIf="description2.hasError('required')">
       <span>Es muss eine Beschreibung angegeben werden!</span>
     </div>
   </div>
   <div class="field">
     <div>
-      <label for="genre">Genre</label>
+      <label for="genre">Genre:</label>
       <select name="genre" id="genre" [(ngModel)]="genre" #genre2="ngModel" required class="form-control">
         <option value="sciFi">SciFi</option>
         <option value="horror">Horror</option>
         <option value="fantasy">Fantasy</option>
       </select>
     </div>
-    <div class="error" *ngIf="genre2.hasError('required')">
+    <div class="alert alert-danger" *ngIf="genre2.hasError('required')">
       <span>Es muss ein Genre angegeben werden!</span>
     </div>
   </div>
   <div class="field">
     <div>
-      <label for="releaseYear">Veröffentlichungsjahr</label>
+      <label for="releaseYear">Veröffentlichungsjahr:</label>
       <input type="number" name="releaseYear" id="releaseYear" [(ngModel)]="releaseYear" #releaseYear2="ngModel" min="1888" [max]="getCurrentYear()" class="form-control">
     </div>
-    <div class="error" *ngIf="releaseYear2.hasError('min')">
+    <div class="alert alert-danger" *ngIf="releaseYear2.hasError('min')">
       <span>Das Erscheinungsjahr muss hinter dem Jahr {{releaseYear2.getError("min").min}} liegen!</span>
     </div>
-    <div class="error" *ngIf="releaseYear2.hasError('max')">
+    <div class="alert alert-danger" *ngIf="releaseYear2.hasError('max')">
       <span>Das Erscheinungsjahr darf das Jahr {{releaseYear2.getError("max").max}} nicht überschreiten!</span>
     </div>
   </div>
   <div class="field">
     <div>
-      <label for="country">Land</label>
+      <label for="country">Land:</label>
       <input type="text" name="country" id="country" [(ngModel)]="country" #country2="ngModel" minlength="3" maxlength="3" required class="form-control">
     </div>
-    <div class="error" *ngIf="country2.hasError('minlength')">
+    <div class="alert alert-danger" *ngIf="country2.hasError('minlength')">
       <span>Das Land muss mindestens {{country2.getError("minlength").requiredLength}} Zeichen lang sein!</span>
     </div>
-    <div class="error" *ngIf="country2.hasError('required')">
+    <div class="alert alert-danger" *ngIf="country2.hasError('required')">
       <span>Es muss ein Land angegeben werden!</span>
     </div>
   </div>
 
-  <button type="submit" [disabled]="!filmForm.valid" class="btn btn-success">submit</button>
+  <div id="submit">
+    <button type="submit" [disabled]="!filmForm.valid" class="btn btn-success">submit</button>
+  </div>
 </form>

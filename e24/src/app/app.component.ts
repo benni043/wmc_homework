@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string = "";
   description: string = "";
-  releaseYear: number = 0;
+  releaseYear: number | undefined;
   country: string = "";
   genre: string = "";
 

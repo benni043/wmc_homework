@@ -1,0 +1,26 @@
+<form #filmForm="ngForm">
+   <div>
+     <label for="title">Title</label>
+     <input type="text" name="title" id="title" [(ngModel)]="title" #title2="ngModel">
+   </div>
+  <div>
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description" [(ngModel)]="description" #description2="ngModel">
+  </div>
+  <div>
+    <label for="genre">Genre</label>
+    <select name="genre" id="genre" [(ngModel)]="genre" #genre2="ngModel">
+      <option value="sciFi">SciFi</option>
+      <option value="horror">Horror</option>
+      <option value="fantasy">Fantasy</option>
+    </select>
+  </div>
+  <div>
+    <label for="releaseYear">Release Year</label>
+    <input type="number" name="releaseYear" id="releaseYear" [(ngModel)]="releaseYear" #releaseYear2="ngModel">
+  </div>
+  <div>
+    <label for="country">Country</label>
+    <input type="text" name="country" id="country" [(ngModel)]="country" #country2="ngModel">
+  </div>
+</form>

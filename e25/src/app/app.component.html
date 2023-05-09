@@ -1,0 +1,39 @@
+<form [formGroup]="animalLover" (ngSubmit)="onSubmit()">
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name" formControlName="name">
+  <label for="vorname">Vorname: </label>
+  <input type="text" name="vorname" id="vorname" formControlName="vorname">
+  <label for="alter">Alter: </label>
+  <input type="number" name="alter" id="alter" formControlName="alter">
+
+  <div formGroupName="pet">
+    <label for="petName">PetName: </label>
+    <input type="text" name="petName" id="petName" formControlName="petName">
+    <label for="art">Art: </label>
+    <select name="art" id="art" formControlName="art">
+      <option value="dog">dog</option>
+      <option value="dog">cat</option>
+      <option value="dog">fish</option>
+      <option value="dog">hamster</option>
+    </select>
+    <label for="petAlter">petAlter: </label>
+    <input type="number" name="petAlter" id="petAlter" formControlName="petAlter">
+  </div>
+
+  <button type="submit" [disabled]="animalLover.invalid">submit</button>
+  <button type="button" (click)="load()">load</button>
+</form>
+
+
+<div>
+  <div id="animal" *ngFor="let animalLover of animalLovers">
+    <div>ID: {{animalLover.id}}</div>
+    <div>Name: {{animalLover.name}}</div>
+    <div>Vorname: {{animalLover.vorname}}</div>
+    <div>Alter: {{animalLover.alter}}</div>
+    <br>
+    <div>Tiername: {{animalLover.haustier.name}}</div>
+    <div>Tieralter: {{animalLover.haustier.alter}}</div>
+    <div>Tierart: {{animalLover.haustier.art}}</div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+label {
+  display: block;
+}
+
+input.ng-valid, select.ng-valid {
+  border-left: 5px solid #42A948;
+}
+
+input.ng-invalid, select.ng-invalid {
+  border-left: 5px solid #a94442;
+}
+
+#animal {
+  margin: 20px;
+
+}

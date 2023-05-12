@@ -34,7 +34,7 @@ export class ProductMainComponent implements OnInit{
     this.httpClient.patch<Product>("http://localhost:7000/api/product/" + $event.id, $event)
       .subscribe({
         next: () => {
-          this.products[this.getProductIndexWithID($event.id)].name = $event.name;
+          this.products[this.getProductIndexWithID($event.id)].name = $event.lastName;
           this.products[this.getProductIndexWithID($event.id)].price = $event.price;
         },
         error: err => {

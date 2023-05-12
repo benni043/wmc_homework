@@ -12,36 +12,39 @@ export class AppComponent {
   animalLovers: AnimalLover[] = [];
 
   animalLover = new FormGroup({
-    name: new FormControl("", [Validators.required, Validators.minLength(3), controlName]),
-    vorname: new FormControl("", [Validators.required, Validators.minLength(3), controlName]),
-    alter: new FormControl(0, [Validators.required, Validators.min(18)]),
+    lastName: new FormControl("", [Validators.required, Validators.minLength(3), controlName]),
+    firstName: new FormControl("", [Validators.required, Validators.minLength(3), controlName]),
+    age: new FormControl(0, [Validators.required, Validators.min(18)]),
+
     pet: new FormGroup({
-      petName: new FormControl("", [Validators.required, Validators.minLength(3), controlName]),
-      art: new FormControl("", [Validators.required]),
-      petAlter: new FormControl(0, [Validators.required, Validators.min(18)])
+      name: new FormControl("", [Validators.required, Validators.minLength(3), controlName]),
+      type: new FormControl("", [Validators.required]),
+      age: new FormControl(0, [Validators.required, Validators.min(1)])
     })
   });
 
   id: number = 0;
   onSubmit() {
     this.animalLovers.push({
-      alter: this.animalLover.get("alter")?.value!,
-      haustier: {
-        alter: this.animalLover.get("pet")?.get("petAlter")?.value!,
-        art: this.animalLover.get("pet")?.get("art")?.value!,
-        name: this.animalLover.get("pet")?.get("petName")?.value!
-      },
       id: this.id,
-      name: this.animalLover.get("name")?.value!,
-      vorname: this.animalLover.get("vorname")?.value!
+      lastName: this.animalLover.get("lastName")?.value!,
+      firstName: this.animalLover.get("firstName")?.value!,
+      age: this.animalLover.get("age")?.value!,
+
+      pet: {
+        age: this.animalLover.get("pet")?.get("age")?.value!,
+        type: this.animalLover.get("pet")?.get("type")?.value!,
+        name: this.animalLover.get("pet")?.get("name")?.value!
+      },
     });
 
     this.id++;
   }
+
   load() {
-    this.animalLover.get("pet")?.get("petName")?.setValue("Bello");
-    this.animalLover.get("pet")?.get("petAlter")?.setValue(19);
-    this.animalLover.get("pet")?.get("art")?.setValue("dog");
+    this.animalLover.get("pet")?.get("name")?.setValue("Sunny");
+    this.animalLover.get("pet")?.get("age")?.setValue(19);
+    this.animalLover.get("pet")?.get("type")?.setValue("dog");
   }
 }
 
@@ -55,14 +58,14 @@ export function controlName(control: AbstractControl): ValidationErrors | null {
 
 export interface AnimalLover {
   id: number,
-  name: string,
-  vorname: string,
-  alter: number,
-  haustier: Pet
+  firstName: string,
+  lastName: string,
+  age: number,
+  pet: Pet
 }
 
 export interface Pet {
   name: string,
-  art: string,
-  alter: number,
+  type: string,
+  age: number,
 }

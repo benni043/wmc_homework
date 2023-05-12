@@ -44,15 +44,15 @@ export class E6StoppWatchComponent implements OnInit {
 
 
   end(): void {
-    if (this.name == "" || !this.started) return;
+    if (this.lastName == "" || !this.started) return;
 
     this.started = false;
-    this.timerAndPersonList.push({timeInMilliseconds: this.timeInMilliseconds, name: this.name})
+    this.timerAndPersonList.push({timeInMilliseconds: this.timeInMilliseconds, lastName: this.lastName})
 
     this.timerAndPersonList.sort((a, b) => a.timeInMilliseconds-b.timeInMilliseconds);
 
     for (let i = 0; i < this.timerAndPersonList.length; i++) {
-      if(this.timerAndPersonList[i].timeInMilliseconds === this.timeInMilliseconds && this.timerAndPersonList[i].name === this.name) {
+      if(this.timerAndPersonList[i].timeInMilliseconds === this.timeInMilliseconds && this.timerAndPersonList[i].lastName === this.lastName) {
         this.latestIndex = i;
         break;
       }

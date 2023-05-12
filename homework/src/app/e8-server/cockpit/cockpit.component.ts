@@ -10,7 +10,7 @@ export class CockpitComponent implements OnInit {
 
   constructor(private serverManagementService: ServerManagementService) {
     this.serverManagementService.copy.subscribe((server: {name: string, type: string}) => {
-      this.name = server.name;
+      this.name = server.lastName;
       this.type = server.type;
     })
   }
@@ -22,7 +22,7 @@ export class CockpitComponent implements OnInit {
   type: string = "training";
 
   add(name: string, type: string) {
-    this.serverManagementService.addNewServer({name: name, type: type});
+    this.serverManagementService.addNewServer({lastName: name, type: type});
   }
 
 }

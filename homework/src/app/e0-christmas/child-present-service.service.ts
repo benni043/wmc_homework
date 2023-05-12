@@ -14,7 +14,7 @@ export class ChildPresentServiceService {
   addNewChild(child: { vorname: string, nachname: string, geburtsdatum: Date }) {
     this.children.push({
       id: this.childId,
-      vorname: child.vorname,
+      firstName: child.firstName,
       nachname: child.nachname,
       geburtsdatum: child.geburtsdatum,
       geschenke: []
@@ -29,7 +29,7 @@ export class ChildPresentServiceService {
       if (this.children[i].id == id) return this.children[i];
     }
 
-    return {id: -1, vorname: "", nachname: "", geburtsdatum: undefined, geschenke: []};
+    return {id: -1, firstName: "", nachname: "", geburtsdatum: undefined, geschenke: []};
   }
 
   getChildIdx(id: number): number {

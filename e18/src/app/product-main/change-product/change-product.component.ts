@@ -13,7 +13,7 @@ export class ChangeProductComponent {
   id: number = 0;
 
   change() {
-    this.changeProduct.emit({name: this.name, price: this.price, id: this.id} as Product)
+    this.changeProduct.emit({lastName: this.lastName, price: this.price, id: this.id} as Product)
   }
 
   @Output() changeProduct: EventEmitter<Product> = new EventEmitter<Product>();

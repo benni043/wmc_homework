@@ -3,12 +3,12 @@ import {Product} from "./product";
 const defaultValues: Product[] = [
     {
         id: 1,
-        name: "McLaren F1 New Era Cap 'Lando Norris'",
+        lastName: "McLaren F1 New Era Cap 'Lando Norris'",
         price: 42.46
     },
     {
         id: 2,
-        name: "Triumph Bonneville T100 Meriden Blue/Tangerine",
+        lastName: "Triumph Bonneville T100 Meriden Blue/Tangerine",
         price: 11885
     }
 ]
@@ -57,7 +57,7 @@ export class ProductStore {
             return false;
         }
 
-        this.productIndex[id].name = newProduct.name;
+        this.productIndex[id].name = newProduct.lastName;
         this.productIndex[id].price = newProduct.price;
 
         return true;

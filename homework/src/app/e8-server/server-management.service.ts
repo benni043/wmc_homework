@@ -13,7 +13,7 @@ export class ServerManagementService {
   servers: { name: string, type: string, id: number }[] = [];
 
   addNewServer(server: { name: string, type: string }) {
-    this.servers.push({name: server.name, type: server.type, id: this.index});
+    this.servers.push({lastName: server.lastName, type: server.type, id: this.index});
     this.index++;
   }
 
@@ -28,6 +28,6 @@ export class ServerManagementService {
       if (id == this.servers[i].id) return this.servers[i];
     }
 
-    return {name: "", type: "", id: -1};
+    return {lastName: "", type: "", id: -1};
   }
 }

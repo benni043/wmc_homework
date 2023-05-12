@@ -24,7 +24,7 @@ export class ServerComponentComponent implements OnInit {
   }
 
   copy() {
-    this.serverManagementService.copy.emit({name: this.server.name, type: this.server.type});
+    this.serverManagementService.copy.emit({lastName: this.server.lastName, type: this.server.type});
   }
 
 }

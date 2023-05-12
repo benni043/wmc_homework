@@ -16,7 +16,7 @@ export class JediServiceService {
   executed = false;
 
   addJedi($event: jedi): void {
-    this.jedis.push({name: $event.name, rang: $event.rang, counter: $event.counter});
+    this.jedis.push({lastName: $event.lastName, rang: $event.rang, counter: $event.counter});
   }
 
   addJediToMission(jedi: jedi): void {
@@ -82,12 +82,12 @@ export class JediServiceService {
     this.executed = true;
 
     for (let jedi of this.jedisImHohenRat) {
-      if(jedi.rang === 'Jedi-Meister' && jedi.name === 'Joda' || jedi.rang === 'Jedi-Meister' && jedi.name === 'Obi-Wan') this.jedis.push(jedi)
+      if(jedi.rang === 'Jedi-Meister' && jedi.lastName === 'Joda' || jedi.rang === 'Jedi-Meister' && jedi.lastName === 'Obi-Wan') this.jedis.push(jedi)
     }
 
     for (let i = this.jedis.length - 1; i >= 0; i--) {
       let rang = this.jedis[i].rang
-      let name = this.jedis[i].name;
+      let name = this.jedis[i].lastName;
 
       if (rang === 'Jedi-Meister' && name === 'Obi-Wan') this.jedis[i].name = "Ben";
 

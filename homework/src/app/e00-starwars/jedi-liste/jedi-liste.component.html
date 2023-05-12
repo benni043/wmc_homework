@@ -1,10 +1,10 @@
 <div>
   <input *ngIf="jediService.jedis.includes(jedi) && jedi.rang !== 'Sith-Lord' && !jediService.executed" type="checkbox" name="mission" id="mission" [(ngModel)]="omMission" (click)="addJediToMission()">
 
-  <span>{{jedi.name}}</span>
+  <span>{{jedi.lastName}}</span>
   <span>{{jedi.rang}}</span>
 
   <button *ngIf="jedi.counter == 2" (click)="jediService.promote(jedi)">befördern</button>
 
-  <button *ngIf="jedi.name === 'Darth-Sidious' && jedi.rang === 'Sith-Lord' && !jediService.executed" (click)="execute()">Order 66</button>
+  <button *ngIf="jedi.lastName === 'Darth-Sidious' && jedi.rang === 'Sith-Lord' && !jediService.executed" (click)="execute()">Order 66</button>
 </div>

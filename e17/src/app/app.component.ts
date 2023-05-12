@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     for (let actorURL of $event.actors) {
       this.starWarsService.getActor(actorURL).subscribe(res => {
         this.starWarsService.actors.push(res);
-        this.starWarsService.actors.sort((a, b) => a.name.localeCompare(b.name));
+        this.starWarsService.actors.sort((a, b) => a.lastName.localeCompare(b.lastName));
       })
     }
 

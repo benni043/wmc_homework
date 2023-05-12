@@ -16,7 +16,7 @@ export class JediFormComponentComponent {
   counter: number = 0;
 
   createJedi(): void {
-    this.jedi.emit({name: this.name, rang: this.rang, counter: this.counter});
+    this.jedi.emit({lastName: this.lastName, rang: this.rang, counter: this.counter});
   }
 
   @Output() jedi: EventEmitter<jedi> = new EventEmitter<jedi>();

@@ -16,7 +16,7 @@ export class CreateProductComponent {
   name: string = "";
 
   create() {
-    this.httpClient.post<Product>("http://localhost:7000/api/product", {name: this.name, price: this.price} as Product)
+    this.httpClient.post<Product>("http://localhost:7000/api/product", {lastName: this.lastName, price: this.price} as Product)
       .subscribe({
         next: res => {
           this.pushProduct.emit(res);

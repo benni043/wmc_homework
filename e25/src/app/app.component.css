@@ -27,15 +27,6 @@ select {
   box-sizing: border-box;
 }
 
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  display: none;
-}
-
 div[formGroupName="pet"] label {
   display: flex;
   align-items: center;
@@ -105,28 +96,6 @@ tbody tr:nth-child(even) {
 
 tbody td {
   border: 1px solid #ddd;
-}
-
-tbody td:first-child {
-  width: 50px;
-}
-
-tbody td:nth-child(4),
-tbody td:last-child {
-  width: 60px;
-}
-
-tbody td:nth-child(5),
-tbody td:nth-child(6) {
-  width: 100px;
-}
-
-tbody tr:last-child td:first-child {
-  border-radius: 0 0 0 5px;
-}
-
-tbody tr:last-child td:last-child {
-  border-radius: 0 0 5px 0;
 }
 
 tr {
